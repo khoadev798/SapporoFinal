@@ -4,6 +4,14 @@ body{
     width: 100%;
     top: 0px;
 }
+@font-face{
+        font-family: BoldTitle;
+        src: url(../Font/SVN-Nexa\ Black.otf);
+}
+@font-face{
+    font-family: Regular;
+    src: url(../Font/SVN-Nexa\ Regular.otf);
+}
 .container{
     position: relative;
     overflow: scroll;
@@ -53,6 +61,7 @@ ul{
     align-items: center;
     margin: auto;
     display: flex;
+    font-family: Regular;
 }
 li{
     /* margin-top: 0% auto 0% auto; */
@@ -244,6 +253,7 @@ input[name="r"]{
 /* PROMO - KHUYẾN MÃI */
 
 #section2{
+    font-family: Regular;
     position: relative;
     width: 80%;
     margin: 2% 10% 2% 10%;
@@ -252,7 +262,8 @@ input[name="r"]{
     text-align: center;
 }
 h1{
-    padding-top: 2.5;
+    font-family: BoldTitle;
+    padding-top: 2.5%;
     position: relative;
     font-weight: bolder;
     font-size: 3em;
@@ -282,7 +293,7 @@ h1{
 }
 #line1-left{
     position: relative;
-    width: 67%;
+    width: 66.8%;
     height: 100%;
     /* border: 1px solid white; */
 }
@@ -290,9 +301,13 @@ h1{
     width: 100%;
     /* background-image: url("../images/master_27.jpg"); */
 }
+#line1-left-info{
+    position: relative;
+    top: 10%;
+}
 #line1-right{
     position: relative;
-    width: 33%;
+    width: 33.2%;
     height: 100%;
     /* border: 1px solid white; */
 }
@@ -471,7 +486,13 @@ h1{
     }
     .info{
         margin-top: -1.5%;
-
+    }
+    #line1-info-left{
+        height: 90.5px;
+    }
+    #right1{
+        height: 91px;
+        margin-top: -2.5%;
     }
     .line2-info{
         margin-top: -11%;
@@ -479,7 +500,6 @@ h1{
 
     .expandable-info{
         height: 1.5%;
-
     }
     .line2-expandable-info{
         height: 1.5%;
