@@ -1,13 +1,17 @@
 var imgAr = [];
+
 var icons = [];
 var gray_icons = [];
 
-function loadImg() {
+function loadImg1() {
   for (var i = 0; i < 5; i++) {
     imgAr[i] = new Image();
-    imgAr[i].src = "../images/after-edit" + i + ".jpg";
+    imgAr[i].src = '../images/big'+i+'.jpg';
+    console.log(imgAr[i].src);
+    
   }
 }
+
 // function loadIcon() {
 //   for (var k = 0; k < 4; k++) {
 //     icons[k] = new Image();
@@ -17,6 +21,8 @@ function loadImg() {
 //   }
 // }
 $(document).ready(function () {
+    console.log(imgAr.length);
+    
   // $(".expand-icon").click(function () {
   var src = $(".expand-icon").attr("src");
   //     if($(".expand-icon").attr("src")==="../images/ic_action_name.png"){
@@ -95,7 +101,7 @@ $(document).ready(function () {
     if ($(this).attr("src") === "../images/ic_action_name.png") {
       console.log("true");
       $(this).attr("src", "../images/Picture1.png");
-      $(".small-images-slider").height("20%");
+      $(".small-images-slider").height("17.5%");
     }
     else {
       $(this).attr("src", "../images/ic_action_name.png");
@@ -105,6 +111,9 @@ $(document).ready(function () {
     // $(".small-images-slider").css("visibility", "visible");
   });
 
+  // for(var k = 0; k < 5; k++){
+  //       $("#small-slider"+k).css("border", "1px solid white");
+  // }
   $("#small-slider0").css("border", "1px solid white");
   function makeBorder(number) {
     for (var j = 0; j < imgAr.length; j++) {
@@ -119,18 +128,15 @@ $(document).ready(function () {
   $(".small-slider").click(function () {
     var src1 = $(this).css("background-image");
     console.log(src1);
-    var src_num = src1.substring(src1.indexOf("edit") + 4, src1.lastIndexOf(".jpg"));
+    var src_num = src1.substring(src1.indexOf("small") + 5, src1.lastIndexOf(".jpg"));
     console.log(src_num);
     console.log(imgAr[parseInt(src_num)].src);
     $("#gallery-middle-image").attr("src", imgAr[parseInt(src_num)].src);
     makeBorder(src_num);
   });
-
-
-
   $("#previous").click(function () {
     var currentSrc = $("#gallery-middle-image").attr("src");
-    var src_num = currentSrc.substring(currentSrc.indexOf("edit") + 4, currentSrc.lastIndexOf(".jpg"));
+    var src_num = currentSrc.substring(currentSrc.indexOf("big") + 3, currentSrc.lastIndexOf(".jpg"));
     var num = parseInt(src_num);
     console.log(num);
     if (num == 0) {
@@ -146,7 +152,7 @@ $(document).ready(function () {
 
   $("#next").click(function () {
     var currentSrc = $("#gallery-middle-image").attr("src");
-    var src_num = currentSrc.substring(currentSrc.indexOf("edit") + 4, currentSrc.lastIndexOf(".jpg"));
+    var src_num = currentSrc.substring(currentSrc.indexOf("big") + 3, currentSrc.lastIndexOf(".jpg"));
     var num = parseInt(src_num);
     console.log(num);
     if (num == 4) {

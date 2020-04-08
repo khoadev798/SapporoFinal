@@ -14,8 +14,22 @@ $(document).ready(function(){
         console.log("a");
         
         ul.classList.toggle('active');
-    })
-})
+    });
+    var width = screen.width
+    console.log(width);
+    if(width>768){
+    document.getElementById('myVideo').addEventListener('ended',myHandler,false);
+    }
+
+    
+    function myHandler(e){
+        var div = document.getElementById("after-video");
+        div.classList.remove("div-hide");
+        if(width>768){
+        $("#myVideo").css("display","none");}
+        // div.innerHTML = "I'm showing";
+    }
+});
 
 // toggleButton.addEventListener('click', () => {
 //     console.log("a");

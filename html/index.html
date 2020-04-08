@@ -11,8 +11,8 @@
     <script src="../js/script1.js"></script>
 </head>
 
-<body>
-    <div class="container">
+<body onload="loadImg1()">
+    <div class="container" >
         <!-- header & slideshow1 -->
 
         <section class="snap" id="section1">
@@ -46,7 +46,7 @@
                 </ul>
             </nav>
             <div class="slideshow">
-                <div class="slides" id = "slideshow1">
+                <div class="slides" id="slideshow1">
                     <input type="radio" name="r" id="r1" checked>
                     <input type="radio" name="r" id="r2">
                     <input type="radio" name="r" id="r3">
@@ -148,11 +148,74 @@
         </section>
         <!-- video -->
         <section class="snap" id="section3">
-
+            <video autoplay muted id="myVideo">
+                <source
+                    src="https://sapporovietnam.com.vn/3-buoc-rot-bia/wp-content/uploads/2019/11/sapporo_premium_beer_rot_bia_chuan_3_buoc_thuong_thuc_chuan_em_dam.mp4"
+                    type="video/mp4">
+            </video>
+            <div id="after-video" class="div-hide">
+                <p id="text1">3 BƯỚC RÓT BIA<br>CHUẨN VỊ</p>
+                <div id="parent">
+                    <p id="text2">TÌM HIỂU THÊM</p>
+                </div>
+            </div>
         </section>
         <!-- thu vien anh -->
         <section class="snap" id="section4">
-
+            <div class="title">
+                <h1>THƯ VIỆN HÌNH ẢNH</h1>
+                <div class="foot-decoration"></div>
+            </div>
+            <div class="gallery-image">
+                <div id="gallery-section1">
+                    <img class="side-image" src="../images/left1.jpg" alt="">
+                    <div class="side-info" id="gallery-left-info">
+                        <h3 class="content4" id="special-text">SAPPORO SUMMER</h3>
+                        <p class="content4">20.03.2020 - 29.03.2020</p>
+                    </div>
+                    <div class="side-footer" id="gallery-left-footer"></div>
+                </div>
+                <div id="gallery-section2">
+                    <img class="side-image" id="gallery-middle-image" src="../images/big0.jpg" alt="">
+                    <div class="side-info" id="gallery-middle-info">
+                        <h3 class="content4" id="special-text">SAPPORO NIGHT</h3>
+                        <p class="content4">20.03.2020 - 29.03.2020</p>
+                    </div>
+                    <div class="side-footer" id="gallery-middle-footer">
+                        <img src="../images/ic_action_name.png" class="expand-icon" id="gallery-middle-icon">
+                    </div>
+                </div>
+                <div id="gallery-section3">
+                    <img class="side-image" src="../images/master_28.jpg" alt="">
+                    <div class="side-info" id="gallery-right-info">
+                        <h3 class="content4" id="special-text">THƯỞNG THỨC</h3>
+                        <p class="content4">20.03.2020 - 29.03.2020</p>
+                    </div>
+                    <div class="side-footer" id="gallery-right-footer">
+                    </div>
+                </div>    
+            </div>
+            
+            <div class="small-images-slider">
+                <div class="small-slider" id="small-slider0"></div>
+                <div class="small-slider" id="small-slider1"></div>
+                <div class="small-slider" id="small-slider2"></div>
+                <div class="small-slider" id="small-slider3"></div>
+                <div class="small-slider" id="small-slider4"></div>
+            </div>
+            
+            <div= class="mover">
+                <div class="run" id="previous">
+                    &lt;
+                </div>
+                <div class="space" ></div>
+                <div class="run" id="next"> 
+                    &gt;
+                </div>
+            </div>
+            <div class="last">
+                2019 © Bản quyền Sở hữu thuộc Công ty Sapporo Việt Nam
+            </div>
         </section>
     </div>
 
