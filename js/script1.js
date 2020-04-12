@@ -101,7 +101,7 @@ $(document).ready(function () {
     if ($(this).attr("src") === "../images/ic_action_name.png") {
       console.log("true");
       $(this).attr("src", "../images/Picture1.png");
-      $(".small-images-slider").height("17.5%");
+      $(".small-images-slider").height("15%");
     }
     else {
       $(this).attr("src", "../images/ic_action_name.png");
@@ -128,7 +128,7 @@ $(document).ready(function () {
   $(".small-slider").click(function () {
     var src1 = $(this).css("background-image");
     console.log(src1);
-    var src_num = src1.substring(src1.indexOf("small") + 5, src1.lastIndexOf(".jpg"));
+    var src_num = src1.substring(src1.indexOf("big") + 3, src1.lastIndexOf(".jpg"));
     console.log(src_num);
     console.log(imgAr[parseInt(src_num)].src);
     $("#gallery-middle-image").attr("src", imgAr[parseInt(src_num)].src);

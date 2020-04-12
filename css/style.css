@@ -560,28 +560,29 @@ video{
     /* border: 10px solid white; */
     position: relative;
     width: 15%;
-    height: 75%;
+    height: 65%;
     margin: 1.25% 2.5% 0% 2.5%;
     border: none;
     /* z-index: 99; */
     background-size: cover;
     background-repeat: no-repeat;
+
 }
 
 #small-slider0{
-    background-image: url("../images/small0.jpg");   
+    background-image: url("../images/big0.jpg");   
 }
 #small-slider1{
-    background-image: url("../images/small1.jpg");   
+    background-image: url("../images/big1.jpg");   
 }
 #small-slider2{
-    background-image: url("../images/small2.jpg");   
+    background-image: url("../images/big2.jpg");   
 }
 #small-slider3{
-    background-image: url("../images/small3.jpg");   
+    background-image: url("../images/big3.jpg");   
 }
 #small-slider4{
-    background-image: url("../images/small4.jpg");   
+    background-image: url("../images/big4.jpg");   
 }
 
 .mover{
