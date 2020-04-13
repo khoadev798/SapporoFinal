@@ -102,10 +102,13 @@ $(document).ready(function () {
       console.log("true");
       $(this).attr("src", "../images/Picture1.png");
       $(".small-images-slider").height("15%");
+      $(".last").css("bottom","-5%");
     }
     else {
       $(this).attr("src", "../images/ic_action_name.png");
       $(".small-images-slider").height("0%");
+      $(".last").css("bottom","0%");
+
     }
     // $(".small-images-slider").slideToggle("slow");
     // $(".small-images-slider").css("visibility", "visible");
