@@ -102,7 +102,7 @@ $(document).ready(function () {
       console.log("true");
       $(this).attr("src", "../images/Picture1.png");
       $(".small-images-slider").height("15%");
-      $(".last").css("bottom","-5%");
+      $(".last").css("bottom","-7.5%");
     }
     else {
       $(this).attr("src", "../images/ic_action_name.png");

@@ -435,7 +435,7 @@ h1{
     width: 100%;
 }
 video{
-    width: 100%;
+    width: 100vw;
     height: 100%;
 }
 .div-hide{
@@ -472,18 +472,18 @@ video{
 
 #gallery-section1{
     width: 25%;
-    height: 70%;
+    height: 72.5%;
 }
 
 #gallery-section2{
     width: 60%;
-    height: 70%;
+    height: 72.5%;
 
 }
 
 #gallery-section3{
     width: 25%;
-    height: 70%;
+    height: 72.5%;
 
 }
 
@@ -547,7 +547,7 @@ video{
     position: relative;
     width: 55%;
     height: 0%;
-    margin-top: -16.5%;
+    margin-top: -15.5%;
     margin-left: 22.5%;
     margin-right: 22.5%;
     background-color: #e19a3e;
@@ -619,8 +619,8 @@ video{
     position: relative;
     width: 100%;
     height: 15%;
-    bottom: 0%;
-    padding-top: 0.5%;
+    bottom: -2.5%;
+    padding-top: 0.75%;
     position: absolute;
     background-color: #a3a3a3;
     color: white;
