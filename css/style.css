@@ -209,15 +209,15 @@ a:hover{
     cursor: pointer;
     transition: 0.4s;
 }
-.bar:hover{
+/* .bar:hover{
     background-color: #fff;
-}
-input[name="r"]{
+} */
+/* input[name="r"]{
     position: absolute;
     visibility: hidden;
-}
+} */
 
-#r1:checked ~ .s1{
+/* #r1:checked ~ .s1{
     margin-left: 0;
 }
 #r2:checked ~ .s1{
@@ -225,8 +225,7 @@ input[name="r"]{
 }
 #r3:checked ~ .s1{
     margin-left: -40%;
-}
-
+} */
 #text1{
     font-family: BoldTitle;
     text-align: center;
@@ -435,9 +434,6 @@ h1{
     background-color: #c6c6c6;
 }
 /* video */
-#section3{
-    /* width: 100%; */
-}
 video{
     width: 100%;
     /* height: 100%; */

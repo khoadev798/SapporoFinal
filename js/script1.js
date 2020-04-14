@@ -20,9 +20,56 @@ function loadImg1() {
 //     gray_icons[k].src = "../images/gray-icon" + k + ".jpg";
 //   }
 // }
+
 $(document).ready(function () {
     console.log(imgAr.length);
+    //Slider 1 change
+    $("#bar1").css("background-color", "white");   
+    function changeSlide(num){
+      for(var s = 1; s < 4; s++){
+          if(num==s){
+            $("#bar"+num).css("background-color","white");
+            var margin = (s-1)*(-20);
+            $(".s1").css("margin-left",margin+"%");
+          }
+          else{
+            $("#bar"+s).css("background-color","transparent");
+          }
+      }
+    }
+    var slide1Current = 1;
+    function runSlide(){
+      if(slide1Current < 3){
+        slide1Current++;
+        changeSlide(slide1Current);
+      }
+      else{
+        slide1Current = 1;
+        changeSlide(slide1Current);
+      }
+      console.log(slide1Current);
+    }
+    var myVar1 = setInterval(runSlide,2000);
     
+
+    $("#bar1").click(function(){
+      slide1Current = 1;
+      changeSlide(slide1Current);
+      // $(".s1").css("margin-left","0%");
+    });
+    $("#bar2").click(function(){
+      slide1Current = 2; 
+      changeSlide(slide1Current);
+      // $(".s1").css("margin-left","-20%");
+    });
+    $("#bar3").click(function(){
+      slide1Current = 3;
+      changeSlide(slide1Current);
+      // $(".s1").css("margin-left","-40%");
+    });
+
+
+
   // $(".expand-icon").click(function () {
   var src = $(".expand-icon").attr("src");
   //     if($(".expand-icon").attr("src")==="../images/ic_action_name.png"){
