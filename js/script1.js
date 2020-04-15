@@ -164,7 +164,7 @@ $(document).ready(function () {
   // for(var k = 0; k < 5; k++){
   //       $("#small-slider"+k).css("border", "1px solid white");
   // }
-  $("#small-slider0").css("border", "1px solid white");
+  $("#small-slider1").css("border", "1px solid white");
   function makeBorder(number) {
     for (var j = 0; j < imgAr.length; j++) {
       if (j == number) {
@@ -175,8 +175,8 @@ $(document).ready(function () {
       }
     }
   }
-  $(".small-slider").click(function () {
-    var src1 = $(this).css("background-image");
+  $(".thumbnail").click(function () {
+    var src1 = $(this).attr('src');
     console.log(src1);
     var src_num = src1.substring(src1.indexOf("big") + 3, src1.lastIndexOf(".jpg"));
     console.log(src_num);
