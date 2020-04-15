@@ -356,7 +356,7 @@ h1{
 #content-big{
     letter-spacing: 2px;
     font-family: BoldTitle;
-    font-size: 1.2em;
+    font-size: 1.7vw;
     font-weight: bolder;
 }
 
@@ -657,9 +657,9 @@ video{
     /* .content4{
         font-size: 0.9em;
     } */
-    #content-big{
+    /* #content-big{
         font-size:1.1em;
-    }
+    } */
 }
 @media only screen and (max-width: 1024px){
     #content-big{
