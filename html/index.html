@@ -80,6 +80,8 @@
 
         .cell img {
             max-width: 100%;
+            /* height:150px; */
+            object-fit: cover;
         }
     </style>
 </head>
@@ -324,6 +326,13 @@
     <script>
         $(document).ready(function () {
             $("#gallery-middle-icon").click(function () {
+                if ($(this).attr("src") === "../images/ic_action_name.png") {
+                    // console.log("true");
+                    $(this).attr("src", "../images/Picture1.png");
+                }
+                else {
+                    $(this).attr("src", "../images/ic_action_name.png");
+                }
                 $("#panel").slideToggle("slow");
             });
         });
