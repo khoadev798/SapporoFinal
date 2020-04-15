@@ -116,7 +116,7 @@ a::before {
     position: relative;
     display: block;
     left: -35px;
-    top: 24px;
+    top: 22px;
     width: 32px;
     height: 24px;   
 }
@@ -374,7 +374,7 @@ h1{
     text-align: left;
     position: relative;
     width: 95%;
-    height: 100px;
+    height: 80px;
     color: white;
     margin-top: -0.9%;
     display: none;
