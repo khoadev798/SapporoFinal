@@ -39,7 +39,7 @@ $(document).ready(function () {
     }
     var slide1Current = 1;
     function runSlide(){
-      if(slide1Current < 3){
+      if(slide1Current < 2){
         slide1Current++;
         changeSlide(slide1Current);
       }
@@ -62,11 +62,11 @@ $(document).ready(function () {
       changeSlide(slide1Current);
       // $(".s1").css("margin-left","-20%");
     });
-    $("#bar3").click(function(){
-      slide1Current = 3;
-      changeSlide(slide1Current);
-      // $(".s1").css("margin-left","-40%");
-    });
+    // $("#bar3").click(function(){
+    //   slide1Current = 3;
+    //   changeSlide(slide1Current);
+    //   // $(".s1").css("margin-left","-40%");
+    // });
 
 
 
