@@ -79,23 +79,27 @@ li{
 
 #li0{
     margin-left: 12.5%;
-    margin-right: 1%;
-    font-size: 0.9vw;
+    margin-right: 30px;
+    font-size: 0.95em;
+    white-space: nowrap;
 }
 #li1{
     margin-left: 1%;
     margin-right: 12.5%;
-    font-size: 0.9vw;
+    font-size: 0.95em;
+    white-space: nowrap;
 }   
 #li2{
     margin-left: 8.5%;
     margin-right: 3%;
-    font-size: 0.9vw;
+    font-size: 0.95em;
+    white-space: nowrap;
 }
 #li3{
-    margin-left: 1%;
+    margin-left: 30px;
     margin-right: 8.5%;
-    font-size: 0.9vw;
+    font-size: 0.95em;
+    white-space: nowrap;
 }
 #logo2{
     margin-left: -3.5%;
@@ -116,7 +120,7 @@ a::before {
     position: relative;
     display: block;
     left: -35px;
-    top: 22px;
+    top: 1.6em;
     width: 31px;
     height: 24px;   
 }
