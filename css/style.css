@@ -116,7 +116,7 @@ a::before {
     position: relative;
     display: block;
     left: -35px;
-    top: 22px;
+    top: 1.5em;
     width: 31px;
     height: 24px;   
 }
