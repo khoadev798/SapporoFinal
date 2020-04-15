@@ -594,7 +594,7 @@ video{
 
 .mover{
     margin-left: 85%;
-    margin-top: 4%;
+    margin-top: 2%;
     width: 19.5%;
     height: 4.5%;
     display: flex;
@@ -633,6 +633,7 @@ video{
     /* padding-top: 0.75%; */
     /* position: absolute; */
     background-color: #a3a3a3;
+    font-size: 0.8em;
     color: white;
     height: 5%;
     text-align: center;
