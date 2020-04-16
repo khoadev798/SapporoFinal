@@ -24,16 +24,17 @@ function loadImg1() {
 $(document).ready(function () {
     console.log(imgAr.length);
     //Slider 1 change
-    $("#bar1").css("background-color", "white");   
+    $("#bar1").css("opacity", "1");   
     function changeSlide(num){
       for(var s = 1; s < 4; s++){
           if(num==s){
-            $("#bar"+num).css("background-color","white");
+            $("#bar"+num).css("opacity","1");
             var margin = (s-1)*(-20);
             $(".s1").css("margin-left",margin+"%");
+
           }
           else{
-            $("#bar"+s).css("background-color","transparent");
+            $("#bar"+s).css("opacity","0.5");
           }
       }
     }
