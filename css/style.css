@@ -45,7 +45,7 @@ nav{
     position: relative;
     top: 1%;
     width: 100%;
-    height: 8vh;
+    /* height: 8vh; */
 }
 .toggle-button{
     position: absolute;
@@ -769,8 +769,11 @@ video{
         display: block;
     }
 
-    .slideshow{
+    /* .slideshow{
         margin-top: -10%;
+    } */
+    nav{
+        height: 15px;
     }
     .navigation{
        bottom: 35px;
