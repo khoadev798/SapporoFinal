@@ -91,8 +91,14 @@ $(document).ready(function () {
     else {
       $(this).attr("src", "../images/ic_action_name.png");
     }
+
+    // if($(".hide-scrollbar2")[0]){
+    //   $(".hidden-info").removeClass("hide-scrollbar2");
+    //   $(".hidden-info").addClass("hide-scrollbar1");
+    // }
     $("#show-info1").slideToggle("slow");
     $("#show-info1").css("background-color", "#e19a3e");
+    $(".hidden-info").toggleClass('hide-scrollbar1');
     $("#show-info1").html("<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum convallis dolor nisl. Ut consequat risus a turpis portitor, quis feugiat velit eleifend. Donec interdum elementum neque. Mauris interdum nibh vitae molestie commodo. Mauris parta felis sapien, vitae hendrerit arcu lacinia non. Sed sapien ipsum, ornare quis magna vitae, iaculis semper auge. Sed pulvinar odio in dictum euismod.</p><p>Morbi tincidunt sodales ipsum, nec porta magna tincidunt sit amet. Aenean porta justo ut molis imperdiet. Nunc varius velit quis nunc parta, quis.</p>");
   });
   $("#line1-right-icon").click(function () {
@@ -103,9 +109,17 @@ $(document).ready(function () {
     else {
       $(this).attr("src", "../images/ic_action_name.png");
     }
+    // if($(".hide-scrollbar1")[0]){
+    //   $(".hidden-info").addClass("hide-scrollbar2");
+    // }
+    // else if($(".hide-scrollbar2")[0]){
+    //   $(".hidden-info").removeClass("hide-scrollbar2");
+    // }
+      // $(".hidden-info").addClass("hide-scrollbar2");
     $("#show-info1").slideToggle("slow");
     $("#show-info1").css("background-color", "#353535");
-    $("#show-info1").html("Hinh 2");
+    $(".hidden-info").toggleClass('hide-scrollbar2');
+    $("#show-info1").html("<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum convallis dolor nisl. Ut consequat risus a turpis portitor, quis feugiat velit eleifend. Donec interdum elementum neque. Mauris interdum nibh vitae molestie commodo. Mauris parta felis sapien, vitae hendrerit arcu lacinia non. Sed sapien ipsum, ornare quis magna vitae, iaculis semper auge. Sed pulvinar odio in dictum euismod.</p><p>Morbi tincidunt sodales ipsum, nec porta magna tincidunt sit amet. Aenean porta justo ut molis imperdiet. Nunc varius velit quis nunc parta, quis.</p>");
   });
 
   $("#line2-left-icon").click(function () {
