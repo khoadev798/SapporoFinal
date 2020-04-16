@@ -893,6 +893,7 @@ video{
 
     .expandable-info{
         height: 1.5%;
+        margin-bottom: -2px;
     }
     .line2-expandable-info{
         height: 1.5%;
