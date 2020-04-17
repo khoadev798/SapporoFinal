@@ -38,19 +38,19 @@
             background-clip: padding-box;
             -webkit-border-radius: 1em;
         }
-        .hidden-scroll3 ::-webkit-scrollbar-thumb {
+        .hide-scrollbar3::-webkit-scrollbar-thumb {
             height: 1em;
             border: 0.8em solid #353535; /* Transparent border together with `background-clip: padding-box` does the trick */
             background-clip: padding-box;
             -webkit-border-radius: 1em;
         }
-        .hidden-scroll4::-webkit-scrollbar-thumb {
+        .hide-scrollbar4::-webkit-scrollbar-thumb {
             height: 1em;
             border: 0.8em solid#facd92; /* Transparent border together with `background-clip: padding-box` does the trick */
             background-clip: padding-box;
             -webkit-border-radius: 1em;
         }
-        .hidden-scroll5::-webkit-scrollbar-thumb {
+        .hide-scrollbar5::-webkit-scrollbar-thumb {
             height: 1em;
             border: 0.8em solid #c6c6c6; /* Transparent border together with `background-clip: padding-box` does the trick */
             background-clip: padding-box;
@@ -191,7 +191,7 @@
                 </div> -->
                 <div class="slideshow__container js-slideshow" :class="{ active: isActive(index) }"
                     v-for="slide, index in listImg">
-                    <img :src="'http://localhost/CMS_Sapporo/images/banner' + slide.id + '.jpg'" />
+                    <img :src="'http://demo.123vieclam.vn/images/banner' + slide.id + '.jpg'" />
                 </div>
                 <div class="navigation">
                     <div v-for="slide, index in listImg" :class="{ active: isActive(index) }" @click="currentSlide(index)" class="bar" id="bar1"></div>
