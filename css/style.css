@@ -298,6 +298,9 @@ h1{
     /* background-color: black; */
     margin: 2.5% 5% 2.5% 5%;
 }
+.line-responsive{
+    margin-bottom: 10%;
+}
 .line{
     position: relative;
     width: 100%;
@@ -613,6 +616,9 @@ video{
     background-image: url("../images/big4.jpg");   
 }
 
+.title2{
+    margin-bottom: 5%;
+}
 .mover{
     margin-left: 85%;
     margin-top: 2%;
@@ -683,6 +689,12 @@ video{
     } */
 }
 @media only screen and (max-width: 1024px){
+    #section4{
+        height: auto;
+    }
+    .line-responsive{
+        margin-bottom: 20%;
+    }
     #content-big{
         font-size: 0.9em;
     }
@@ -732,9 +744,9 @@ video{
      #decoraiton2{
          margin-top: -3%;
      }
-     #section3{
+     /* #section3{
          height: 100vh;
-     }
+     } */
      video{
          height: 100%;
          
@@ -773,6 +785,15 @@ video{
 }
 /* FOR MOBILE */
 @media only screen and (max-width: 768px){
+    #section4{
+        height: auto;
+    }
+    .title-responsive{
+        margin-bottom: 10%;
+    }
+    .line-responsive{
+        margin-bottom: 20%;
+    }
     .toggle-button{
         display: block;
     }
@@ -867,7 +888,8 @@ video{
     }
     #section2{
         width: 100%;
-        height: 102vh;
+        /* height: 102vh; */
+        margin-bottom: 2%;
         margin: 0%;
         overflow: auto;
     }
