@@ -181,12 +181,12 @@ $(document).ready(function () {
   var run1;
   $('#line1-icon0').hover(function(){
     if(flag1==0){
-      run1 = setTimeout(onClickAndDisableOtherClick(0),500);
+      run1 = setTimeout(onClickAndDisableOtherClick(0),200);
     }
   });
   $('#line1-icon1').hover(function(){
     if(flag1==0){
-      run1 = setTimeout(onClickAndDisableOtherClick(1),500);
+      run1 = setTimeout(onClickAndDisableOtherClick(1),200);
       }   
   });
   $('#line1-icon1').hover(onClickAndDisableOtherClick(1));
@@ -200,7 +200,7 @@ $(document).ready(function () {
             $(this).attr("src", "../images/Picture1.png");
             changeInsideOfHiddenInfo1(element);
             $("#show-info1").addClass('hide-scrollbar'+(element+1));
-            $("#show-info1").slideDown('slow');
+            $("#show-info1").stop(true).slideDown('slow');
           }
           else {
             $(this).attr("src", "../images/ic_action_name.png");
@@ -264,18 +264,18 @@ $(document).ready(function () {
   }
   $('#line2-icon0').hover(function(){
     if(flag2==0){
-      run2 = setTimeout(onClickAndDisableOtherClickLine2(0),500);
+      run2 = setTimeout(onClickAndDisableOtherClickLine2(0),200);
     }
   });
   $('#line2-icon1').hover(function(){
     if(flag2==0){
-      run2 = setTimeout(onClickAndDisableOtherClickLine2(1),500);
+      run2 = setTimeout(onClickAndDisableOtherClickLine2(1),200);
 
     }   
   });
   $('#line2-icon2').hover(function(){
     if(flag2==0){
-      run2 = setTimeout(onClickAndDisableOtherClickLine2(2),500);
+      run2 = setTimeout(onClickAndDisableOtherClickLine2(2),200);
       }   
   });
   function onClickAndDisableOtherClickLine2(element2){
@@ -288,7 +288,7 @@ $(document).ready(function () {
             $(this).attr("src", "../images/Picture1.png");
             changeInsideOfHiddenInfo2(element2);
             $("#show-info2").addClass('hide-scrollbar'+(element2+3));
-            $("#show-info2").slideDown('slow');
+            $("#show-info2").stop(true).slideDown('slow');
           }
           else {
             $(this).attr("src", "../images/ic_action_name.png");
