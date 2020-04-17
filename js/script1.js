@@ -2,17 +2,10 @@ var app = new Vue({
   el: ".container",
   data: {
     listImg: [
-       {id:1},
-       {id:2},
-       {id:3}
+
     ],
     listPromo: [
 
-    ],
-    listLibrary: [
-      { id: 1, title: "SAPPORO SUMMER", time_start: "2020-03-27", time_end: "2020-03-29" },
-      { id: 2, title: "SAPPORO NIGHT", time_start: "2020-03-27", time_end: "2020-03-29" },
-      { id: 3, title: "THƯỞNG THỨC", time_start: "2020-03-27", time_end: "2020-03-29" }
     ],
     currentIndex: 0,
     current: 0,
@@ -24,8 +17,14 @@ var app = new Vue({
   },
   mounted: function () {
     this.startRotation();
+    this.getListImg();
   },
   methods: {
+    async getListImg() {
+      let res = await axios.get('http://demo.123vieclam.vn/api.php?action=read_slide')
+      this.listImg = res.data.slides
+      // console.log(this.listImg)
+  },
     startRotation: function () {
       this.timer = setInterval(this.next, this.speed);
     },
