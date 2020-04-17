@@ -298,9 +298,6 @@ h1{
     /* background-color: black; */
     margin: 2.5% 5% 2.5% 5%;
 }
-.line-responsive{
-    margin-bottom: 10%;
-}
 .line{
     position: relative;
     width: 100%;
@@ -380,7 +377,7 @@ h1{
 .hidden-info{
     /* padding-top: 2.5%; */
     line-height: 1.6;
-    padding-left: 5%;
+    padding-left: 4.9%;
     padding-bottom: 2.5%;
     font-size: 0.7em;
     text-align: left;
@@ -689,12 +686,12 @@ video{
     } */
 }
 @media only screen and (max-width: 1024px){
-    #section4{
+    /* #section4{
         height: auto;
-    }
-    .line-responsive{
+    } */
+    /* .line-responsive{
         margin-bottom: 20%;
-    }
+    } */
     #content-big{
         font-size: 0.9em;
     }
@@ -791,9 +788,9 @@ video{
     .title-responsive{
         margin-bottom: 10%;
     }
-    .line-responsive{
+    /* .line-responsive{
         margin-bottom: 20%;
-    }
+    } */
     .toggle-button{
         display: block;
     }
