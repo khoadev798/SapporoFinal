@@ -8,8 +8,9 @@
     <link rel="stylesheet" href="../css/style.css">
     <link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.5.0/css/all.css'>
     <script src="../js/jQuery.js"></script>
-    <script src="../js/script.js"></script>
-    <script src="../js/script1.js"></script>
+    <script src="../js/vue.js"></script>
+    <script src="../js/axios.min.js"></script>
+    
     <style>
         html {
             scroll-behavior: smooth;
@@ -20,7 +21,7 @@
         }
 
         /* width */
-        ::-webkit-scrollbar {
+        .article ::-webkit-scrollbar {
             width: 2em;  /* Total width including `border-width` of scrollbar thumb */
             height: 0;
         }
@@ -77,8 +78,6 @@
             box-align: center;
             align-items: center;
             box-sizing: border-box;
-
-
         }
 
         .cell {
@@ -100,6 +99,48 @@
             /* height:150px; */
             object-fit: cover;
         }
+        /*--------------slide image-------------*/
+.slideshow__container {
+    overflow: hidden;
+    position: relative;
+    padding-top: calc(9 / 16 * 100%);
+    min-width: 100%;
+    width: 50vw;
+    height: 0;
+    display: none;  
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+  .slideshow img {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* object-fit: cover; */
+    transition: opacity 1s;
+  }
+  .active {
+    display:block;
+  }
+  .numbertext {
+    color: #f2f2f2;
+    font-size: 12px;
+    padding: 8px 12px;
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    right: 0;
+  }
+  .text {
+    color: #f2f2f2;
+    font-size: 15px;
+    padding: 0 12px;
+    position: absolute;
+    bottom: 8px;
+    z-index: 1;
+  }
+
     </style>
 </head>
 
@@ -137,27 +178,24 @@
                     </li>
                 </ul>
             </nav>
-            <div class="slideshow">
-                <div class="slides" id="slideshow1">
-                    <!-- <input type="radio" name="r" id="r1" checked>
-                    <input type="radio" name="r" id="r2">
-                    <input type="radio" name="r" id="r3"> -->
+            <div class="slideshow" id="slideshow1">
+                <!-- <div class="slides" id="slideshow1">
                     <div class="slide s1" id="slide1">
-                        <!-- <img src="../images/slider1.jpg" style="width: 100%;"> -->
                     </div>
                     <div class="slide" id="slide2">
                         <p id="text1">3 BƯỚC RÓT BIA<br>CHUẨN VỊ</p>
                         <div id="parent">
                             <p id="text2">TÌM HIỂU THÊM</p>
                         </div>
-                        <!-- <img src="../images/slider2.jpg" style="width: 100%;"> -->
                     </div>
-                    <!-- <div class="slide" id="slide3">
-                    </div> -->
+                </div> -->
+                <div class="slideshow__container js-slideshow" :class="{ active: isActive(index) }"
+                    v-for="slide, index in listImg">
+                    <img :src="'http://localhost/CMS_Sapporo/images/banner' + slide.id + '.jpg'" />
                 </div>
                 <div class="navigation">
-                    <div class="bar" id="bar1"></div>
-                    <div class="bar" id="bar2"></div>
+                    <div v-for="slide, index in listImg" :class="{ active: isActive(index) }" @click="currentSlide(index)" class="bar" id="bar1"></div>
+                    <!-- <div class="bar" id="bar2"></div> -->
                     <!-- <div class="bar" id="bar3"></div> -->
                 </div>
             </div>
@@ -354,6 +392,8 @@
             });
         });
     </script>
+    <script src="../js/script.js"></script>
+    <script src="../js/script1.js"></script>
 </body>
 
 </html>
