@@ -267,7 +267,7 @@ a:hover{
     font-family: Regular;
     position: relative;
     width: 80%;
-    margin: 2% 10% 2% 10%;
+    margin: 6% 10% 2% 10%;
     height: 100%;
     /* border: 1px solid black; */
     text-align: center;
@@ -748,7 +748,9 @@ video{
     #line1-info-left{
         height: 6em;
     }
-  
+    #right1{
+        height: 6.1em;
+    }
     #after-video{
         height: 80%;
        background-position: 50% 0%;
