@@ -1,3 +1,91 @@
+var app = new Vue({
+  el: ".container",
+  data: {
+    listImg: [
+       {id:1},
+       {id:2},
+       {id:3}
+    ],
+    listPromo: [
+
+    ],
+    listLibrary: [
+      { id: 1, title: "SAPPORO SUMMER", time_start: "2020-03-27", time_end: "2020-03-29" },
+      { id: 2, title: "SAPPORO NIGHT", time_start: "2020-03-27", time_end: "2020-03-29" },
+      { id: 3, title: "THƯỞNG THỨC", time_start: "2020-03-27", time_end: "2020-03-29" }
+    ],
+    currentIndex: 0,
+    current: 0,
+    speed: 3000,
+    timer: null,
+    errorMsg: false,
+    successMsg: false,
+    toggleCheck: false
+  },
+  mounted: function () {
+    this.startRotation();
+  },
+  methods: {
+    startRotation: function () {
+      this.timer = setInterval(this.next, this.speed);
+    },
+    stopRotation: function () {
+      clearTimeout(this.timer);
+      this.timer = null;
+    },
+    next: function () {
+      var current = this.current;
+      var next = current + 1;
+
+      if (next > this.listImg.length - 1) {
+        next = 0;
+      }
+      this.current = next;
+      this.setActive(this.current);
+
+
+      // -------add active------
+      // var bars = document.getElementsByClassName("bar");
+      // console.log(bars.length)
+      // for (i = 0; i < bars.length; i++) {
+      //   bars[i].className = bars[i].className.replace(" active", "");
+      // }
+      // bars[this.current].className += " active";
+    },
+    // prev: function () {
+    //   var current = this.current;
+    //   var prev = current - 1;
+
+    //   if (prev < 0) {
+    //     prev = this.listImg.length -1;
+    //   }
+
+    //   this.current = prev;
+    //   this.setActive(this.current);
+    // },
+    isActive: function (slide) {
+      return this.current === slide;
+    },
+    setActive: function (slide) {
+      this.current = slide;
+    },
+    currentSlide(n) {
+      this.isActive(this.current = n);      
+    },
+  }
+})
+
+
+
+
+
+
+
+
+
+
+
+// -----------------------------VUEJS--------------------------------------------------
 var imgAr = [];
 
 var icons = [];
@@ -22,52 +110,52 @@ function loadImg1() {
 // }
 
 $(document).ready(function () {
-    console.log(imgAr.length);
-    //Slider 1 change
-    $("#bar1").css("opacity", "1");   
-    function changeSlide(num){
-      for(var s = 1; s < 4; s++){
-          if(num==s){
-            $("#bar"+num).css("opacity","1");
-            var margin = (s-1)*(-20);
-            $(".s1").css("margin-left",margin+"%");
+    // console.log(imgAr.length);
+    // //Slider 1 change
+    // $("#bar1").css("opacity", "1");   
+    // function changeSlide(num){
+    //   for(var s = 1; s < 4; s++){
+    //       if(num==s){
+    //         $("#bar"+num).css("opacity","1");
+    //         var margin = (s-1)*(-20);
+    //         $(".s1").css("margin-left",margin+"%");
 
-          }
-          else{
-            $("#bar"+s).css("opacity","0.5");
-          }
-      }
-    }
-    var slide1Current = 1;
-    function runSlide(){
-      if(slide1Current < 2){
-        slide1Current++;
-        changeSlide(slide1Current);
-      }
-      else{
-        slide1Current = 1;
-        changeSlide(slide1Current);
-      }
-      console.log(slide1Current);
-    }
-    var myVar1 = setInterval(runSlide,3000);
+    //       }
+    //       else{
+    //         $("#bar"+s).css("opacity","0.5");
+    //       }
+    //   }
+    // }
+    // var slide1Current = 1;
+    // function runSlide(){
+    //   if(slide1Current < 2){
+    //     slide1Current++;
+    //     changeSlide(slide1Current);
+    //   }
+    //   else{
+    //     slide1Current = 1;
+    //     changeSlide(slide1Current);
+    //   }
+    //   console.log(slide1Current);
+    // }
+    // var myVar1 = setInterval(runSlide,3000);
     
 
-    $("#bar1").click(function(){
-      slide1Current = 1;
-      changeSlide(slide1Current);
-      // $(".s1").css("margin-left","0%");
-    });
-    $("#bar2").click(function(){
-      slide1Current = 2; 
-      changeSlide(slide1Current);
-      // $(".s1").css("margin-left","-20%");
-    });
-    // $("#bar3").click(function(){
-    //   slide1Current = 3;
+    // $("#bar1").click(function(){
+    //   slide1Current = 1;
     //   changeSlide(slide1Current);
-    //   // $(".s1").css("margin-left","-40%");
+    //   // $(".s1").css("margin-left","0%");
     // });
+    // $("#bar2").click(function(){
+    //   slide1Current = 2; 
+    //   changeSlide(slide1Current);
+    //   // $(".s1").css("margin-left","-20%");
+    // });
+    // // $("#bar3").click(function(){
+    // //   slide1Current = 3;
+    // //   changeSlide(slide1Current);
+    // //   // $(".s1").css("margin-left","-40%");
+    // // });
 
 
 
