@@ -170,81 +170,175 @@ $(document).ready(function () {
   //     }
   //     $("#show-info").slideToggle("slow");      
   // });
-  $("#line1-left-icon").click(function () {
-    if ($(this).attr("src") === "../images/ic_action_name.png") {
-      console.log("true");
-      $(this).attr("src", "../images/Picture1.png");
+  var hiddenInfo1ToShow = [];
+  hiddenInfo1ToShow[0] = {bgColor:'#e19a3e', html:'<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum convallis dolor nisl. Ut consequat risus a turpis portitor, quis feugiat velit eleifend. Donec interdum elementum neque. Mauris interdum nibh vitae molestie commodo. Mauris parta felis sapien, vitae hendrerit arcu lacinia non. Sed sapien ipsum, ornare quis magna vitae, iaculis semper auge. Sed pulvinar odio in dictum euismod.</p><p>Morbi tincidunt sodales ipsum, nec porta magna tincidunt sit amet. Aenean porta justo ut molis imperdiet. Nunc varius velit quis nunc parta, quis.</p>'};
+  hiddenInfo1ToShow[1] = {bgColor:'#353535', html:'<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum convallis dolor nisl. Ut consequat risus a turpis portitor, quis feugiat velit eleifend. Donec interdum elementum neque. Mauris interdum nibh vitae molestie commodo. Mauris parta felis sapien, vitae hendrerit arcu lacinia non. Sed sapien ipsum, ornare quis magna vitae, iaculis semper auge. Sed pulvinar odio in dictum euismod.</p><p>Morbi tincidunt sodales ipsum, nec porta magna tincidunt sit amet. Aenean porta justo ut molis imperdiet. Nunc varius velit quis nunc parta, quis.</p>'};
+  function changeInsideOfHiddenInfo1(hiddenNum1){
+    $("#show-info1").css("background-color", hiddenInfo1ToShow[hiddenNum1].bgColor);
+    $("#show-info1").html(hiddenInfo1ToShow[hiddenNum1].html)
+  }
+  var flag1 = 0;
+  var run1;
+  $('#line1-icon0').hover(function(){
+    if(flag1==0){
+      run1 = setTimeout(onClickAndDisableOtherClick(0),500);
     }
-    else {
-      $(this).attr("src", "../images/ic_action_name.png");
+  });
+  $('#line1-icon1').hover(function(){
+    if(flag1==0){
+      run1 = setTimeout(onClickAndDisableOtherClick(1),500);
+      }   
+  });
+  $('#line1-icon1').hover(onClickAndDisableOtherClick(1));
+  function onClickAndDisableOtherClick(element){
+    for(var t = 0; t<2 ; t++){
+      if(t==element){
+        $('#line1-icon'+element).click( function(){
+          flag1 = 1;
+          if ($(this).attr("src") === "../images/ic_action_name.png") {
+            console.log("true");
+            $(this).attr("src", "../images/Picture1.png");
+            changeInsideOfHiddenInfo1(element);
+            $("#show-info1").addClass('hide-scrollbar'+(element+1));
+            $("#show-info1").slideDown('slow');
+          }
+          else {
+            $(this).attr("src", "../images/ic_action_name.png");
+            flag1 = 0;
+            $("#show-info1").slideUp('slow');
+            $("#show-info1").removeClass('hide-scrollbar'+(element+1));
+          }
+        });
+      }
+      else{
+        $('#line1-icon'+t).unbind('click');
+      }
     }
+  }
+  // $("#line1-icon0").click(function () {
+  //   if ($(this).attr("src") === "../images/ic_action_name.png") {
+  //     console.log("true");
+  //     $(this).attr("src", "../images/Picture1.png");
+  //   }
+  //   else {
+  //     $(this).attr("src", "../images/ic_action_name.png");
+  //   }
+  //   // if($(".hide-scrollbar2")[0]){
+  //   //   $(".hidden-info").removeClass("hide-scrollbar2");
+  //   //   $(".hidden-info").addClass("hide-scrollbar1");
+  //   // }
+  //   $("#show-info1").slideToggle("slow");
+  //   $("#show-info1").css("background-color", "#e19a3e");
+  //   $(".hidden-info").toggleClass('hide-scrollbar1');
+  //   $("#show-info1").html("<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum convallis dolor nisl. Ut consequat risus a turpis portitor, quis feugiat velit eleifend. Donec interdum elementum neque. Mauris interdum nibh vitae molestie commodo. Mauris parta felis sapien, vitae hendrerit arcu lacinia non. Sed sapien ipsum, ornare quis magna vitae, iaculis semper auge. Sed pulvinar odio in dictum euismod.</p><p>Morbi tincidunt sodales ipsum, nec porta magna tincidunt sit amet. Aenean porta justo ut molis imperdiet. Nunc varius velit quis nunc parta, quis.</p>");
+  // });
+  // $("#line1-icon1").click(function () {
+  //   if ($(this).attr("src") === "../images/ic_action_name.png") {
+  //     console.log("true");
+  //     $(this).attr("src", "../images/Picture1.png");
+  //   }
+  //   else {
+  //     $(this).attr("src", "../images/ic_action_name.png");
+  //   }
+  //   // if($(".hide-scrollbar1")[0]){
+  //   //   $(".hidden-info").addClass("hide-scrollbar2");
+  //   // }
+  //   // else if($(".hide-scrollbar2")[0]){
+  //   //   $(".hidden-info").removeClass("hide-scrollbar2");
+  //   // }
+  //     // $(".hidden-info").addClass("hide-scrollbar2");
+  //   $("#show-info1").slideToggle("slow");
+  //   $("#show-info1").css("background-color", "#353535");
+  //   $(".hidden-info").toggleClass('hide-scrollbar2');
+  //   $("#show-info1").html("<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum convallis dolor nisl. Ut consequat risus a turpis portitor, quis feugiat velit eleifend. Donec interdum elementum neque. Mauris interdum nibh vitae molestie commodo. Mauris parta felis sapien, vitae hendrerit arcu lacinia non. Sed sapien ipsum, ornare quis magna vitae, iaculis semper auge. Sed pulvinar odio in dictum euismod.</p><p>Morbi tincidunt sodales ipsum, nec porta magna tincidunt sit amet. Aenean porta justo ut molis imperdiet. Nunc varius velit quis nunc parta, quis.</p>");
+  // });
+  var hiddenInfo1ToShow1 = [];
+  hiddenInfo1ToShow1[0] = {bgColor:'#353535', html:'<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum convallis dolor nisl. Ut consequat risus a turpis portitor, quis feugiat velit eleifend. Donec interdum elementum neque. Mauris interdum nibh vitae molestie commodo. Mauris parta felis sapien, vitae hendrerit arcu lacinia non. Sed sapien ipsum, ornare quis magna vitae, iaculis semper auge. Sed pulvinar odio in dictum euismod.</p><p>Morbi tincidunt sodales ipsum, nec porta magna tincidunt sit amet. Aenean porta justo ut molis imperdiet. Nunc varius velit quis nunc parta, quis.</p>'};
+  hiddenInfo1ToShow1[1] = {bgColor:'#facd92', html:'<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum convallis dolor nisl. Ut consequat risus a turpis portitor, quis feugiat velit eleifend. Donec interdum elementum neque. Mauris interdum nibh vitae molestie commodo. Mauris parta felis sapien, vitae hendrerit arcu lacinia non. Sed sapien ipsum, ornare quis magna vitae, iaculis semper auge. Sed pulvinar odio in dictum euismod.</p><p>Morbi tincidunt sodales ipsum, nec porta magna tincidunt sit amet. Aenean porta justo ut molis imperdiet. Nunc varius velit quis nunc parta, quis.</p>'};
+  hiddenInfo1ToShow1[2] = {bgColor:'#c6c6c6', html:'<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum convallis dolor nisl. Ut consequat risus a turpis portitor, quis feugiat velit eleifend. Donec interdum elementum neque. Mauris interdum nibh vitae molestie commodo. Mauris parta felis sapien, vitae hendrerit arcu lacinia non. Sed sapien ipsum, ornare quis magna vitae, iaculis semper auge. Sed pulvinar odio in dictum euismod.</p><p>Morbi tincidunt sodales ipsum, nec porta magna tincidunt sit amet. Aenean porta justo ut molis imperdiet. Nunc varius velit quis nunc parta, quis.</p>'};
+  var flag2 = 0;
+  var run2;
+  function changeInsideOfHiddenInfo2(hiddenNum2){
+    $("#show-info2").css("background-color", hiddenInfo1ToShow1[hiddenNum2].bgColor);
+    $("#show-info2").html(hiddenInfo1ToShow1[hiddenNum2].html)
+  }
+  $('#line2-icon0').hover(function(){
+    if(flag2==0){
+      run2 = setTimeout(onClickAndDisableOtherClickLine2(0),500);
+    }
+  });
+  $('#line2-icon1').hover(function(){
+    if(flag2==0){
+      run2 = setTimeout(onClickAndDisableOtherClickLine2(1),500);
 
-    // if($(".hide-scrollbar2")[0]){
-    //   $(".hidden-info").removeClass("hide-scrollbar2");
-    //   $(".hidden-info").addClass("hide-scrollbar1");
-    // }
-    $("#show-info1").slideToggle("slow");
-    $("#show-info1").css("background-color", "#e19a3e");
-    $(".hidden-info").toggleClass('hide-scrollbar1');
-    $("#show-info1").html("<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum convallis dolor nisl. Ut consequat risus a turpis portitor, quis feugiat velit eleifend. Donec interdum elementum neque. Mauris interdum nibh vitae molestie commodo. Mauris parta felis sapien, vitae hendrerit arcu lacinia non. Sed sapien ipsum, ornare quis magna vitae, iaculis semper auge. Sed pulvinar odio in dictum euismod.</p><p>Morbi tincidunt sodales ipsum, nec porta magna tincidunt sit amet. Aenean porta justo ut molis imperdiet. Nunc varius velit quis nunc parta, quis.</p>");
+    }   
   });
-  $("#line1-right-icon").click(function () {
-    if ($(this).attr("src") === "../images/ic_action_name.png") {
-      console.log("true");
-      $(this).attr("src", "../images/Picture1.png");
-    }
-    else {
-      $(this).attr("src", "../images/ic_action_name.png");
-    }
-    // if($(".hide-scrollbar1")[0]){
-    //   $(".hidden-info").addClass("hide-scrollbar2");
-    // }
-    // else if($(".hide-scrollbar2")[0]){
-    //   $(".hidden-info").removeClass("hide-scrollbar2");
-    // }
-      // $(".hidden-info").addClass("hide-scrollbar2");
-    $("#show-info1").slideToggle("slow");
-    $("#show-info1").css("background-color", "#353535");
-    $(".hidden-info").toggleClass('hide-scrollbar2');
-    $("#show-info1").html("<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum convallis dolor nisl. Ut consequat risus a turpis portitor, quis feugiat velit eleifend. Donec interdum elementum neque. Mauris interdum nibh vitae molestie commodo. Mauris parta felis sapien, vitae hendrerit arcu lacinia non. Sed sapien ipsum, ornare quis magna vitae, iaculis semper auge. Sed pulvinar odio in dictum euismod.</p><p>Morbi tincidunt sodales ipsum, nec porta magna tincidunt sit amet. Aenean porta justo ut molis imperdiet. Nunc varius velit quis nunc parta, quis.</p>");
+  $('#line2-icon2').hover(function(){
+    if(flag2==0){
+      run2 = setTimeout(onClickAndDisableOtherClickLine2(2),500);
+      }   
   });
-
-  $("#line2-left-icon").click(function () {
-    if ($(this).attr("src") === "../images/ic_action_name.png") {
-      console.log("true");
-      $(this).attr("src", "../images/Picture1.png");
+  function onClickAndDisableOtherClickLine2(element2){
+    for(var t = 0; t<3 ; t++){
+      if(t==element2){
+        $('#line2-icon'+element2).click( function(){
+          flag2 = 1;
+          if ($(this).attr("src") === "../images/ic_action_name.png") {
+            console.log("true");
+            $(this).attr("src", "../images/Picture1.png");
+            changeInsideOfHiddenInfo2(element2);
+            $("#show-info2").addClass('hide-scrollbar'+(element2+3));
+            $("#show-info2").slideDown('slow');
+          }
+          else {
+            $(this).attr("src", "../images/ic_action_name.png");
+            flag2 = 0;
+            $("#show-info2").slideUp('slow');
+            $("#show-info2").removeClass('hide-scrollbar'+(element2+3));
+          }
+        });
+      }
+      else{
+        $('#line2-icon'+t).unbind('click');
+      }
     }
-    else {
-      $(this).attr("src", "../images/ic_action_name.png");
-    }
-    $("#show-info2").slideToggle("slow");
-    $("#show-info2").css("background-color", "#353535");
-    $("#show-info2").html("Hinh 3");
-  });
-  $("#line2-middle-icon").click(function () {
-    if ($(this).attr("src") === "../images/ic_action_name.png") {
-      console.log("true");
-      $(this).attr("src", "../images/Picture1.png");
-    }
-    else {
-      $(this).attr("src", "../images/ic_action_name.png");
-    }
-    $("#show-info2").slideToggle("slow");
-    $("#show-info2").css("background-color", "#facd92");
-    $("#show-info2").html("Hinh 4");
-  });
-  $("#line2-right-icon").click(function () {
-    if ($(this).attr("src") === "../images/ic_action_name.png") {
-      console.log("true");
-      $(this).attr("src", "../images/Picture1.png");
-    }
-    else {
-      $(this).attr("src", "../images/ic_action_name.png");
-    }
-    $("#show-info2").slideToggle("slow");
-    $("#show-info2").css("background-color", "#c6c6c6");
-    $("#show-info2").html("Hinh 5");
-  });
+  }
+  // $("#line2-left-icon").click(function () {
+  //   if ($(this).attr("src") === "../images/ic_action_name.png") {
+  //     console.log("true");
+  //     $(this).attr("src", "../images/Picture1.png");
+  //   }
+  //   else {
+  //     $(this).attr("src", "../images/ic_action_name.png");
+  //   }
+  //   $("#show-info2").slideToggle("slow");
+  //   $("#show-info2").css("background-color", "#353535");
+  //   $("#show-info2").html("Hinh 3");
+  // });
+  // $("#line2-middle-icon").click(function () {
+  //   if ($(this).attr("src") === "../images/ic_action_name.png") {
+  //     console.log("true");
+  //     $(this).attr("src", "../images/Picture1.png");
+  //   }
+  //   else {
+  //     $(this).attr("src", "../images/ic_action_name.png");
+  //   }
+  //   $("#show-info2").slideToggle("slow");
+  //   $("#show-info2").css("background-color", "#facd92");
+  //   $("#show-info2").html("Hinh 4");
+  // });
+  // $("#line2-right-icon").click(function () {
+  //   if ($(this).attr("src") === "../images/ic_action_name.png") {
+  //     console.log("true");
+  //     $(this).attr("src", "../images/Picture1.png");
+  //   }
+  //   else {
+  //     $(this).attr("src", "../images/ic_action_name.png");
+  //   }
+  //   $("#show-info2").slideToggle("slow");
+  //   $("#show-info2").css("background-color", "#c6c6c6");
+  //   $("#show-info2").html("Hinh 5");
+  // });
 
   // $("#gallery-middle-icon").click(function () {
   //   if ($(this).attr("src") === "../images/ic_action_name.png") {
