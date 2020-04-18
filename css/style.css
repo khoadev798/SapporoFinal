@@ -330,6 +330,7 @@ h1{
 }
 #line1-right-pic{
     width: 100%;
+    z-index: 100;
 }
 .info{
     margin-top: -0.6%;
