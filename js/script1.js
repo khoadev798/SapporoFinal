@@ -179,16 +179,17 @@ $(document).ready(function () {
   }
   var flag1 = 0;
   var run1;
-  $('#line1-icon0').hover(function(){
-    if(flag1==0){
-      run1 = setTimeout(onClickAndDisableOtherClick(0),200);
-    }
-  });
   $('#line1-icon1').hover(function(){
     if(flag1==0){
       run1 = setTimeout(onClickAndDisableOtherClick(1),200);
       }   
   });
+  $('#line1-icon0').hover(function(){
+    if(flag1==0){
+      run1 = setTimeout(onClickAndDisableOtherClick(0),200);
+    }
+  });
+  
   $('#line1-icon1').hover(onClickAndDisableOtherClick(1));
   function onClickAndDisableOtherClick(element){
     for(var t = 0; t<2 ; t++){
