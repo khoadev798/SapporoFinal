@@ -190,7 +190,7 @@ $(document).ready(function () {
     }
   });
   
-  $('#line1-icon1').hover(onClickAndDisableOtherClick(1));
+  // $('#line1-icon1').hover(onClickAndDisableOtherClick(0));
   function onClickAndDisableOtherClick(element){
     for(var t = 0; t<2 ; t++){
       if(t==element){
