@@ -294,7 +294,7 @@ h1{
 }
 .article{
     position: relative;
-    max-width: 1110px;
+    width: 100%;
     /* background-color: black; */
     margin: 2.5% 3.5% 2.5% 3.5%;
 }
@@ -304,19 +304,24 @@ h1{
     height: 50%;
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
+}
+.line1:nth-child(even) {
+    flex: 1 33.3%;
 }
 
+.line1:nth-child(odd) {
+    flex: 1 66.6%;
+}
 #line1-left{
     position: relative;
-    width: calc(2/3 *100%);
+    /* width: calc(2/3 *100%); */
     height: 100%;
     /* border: 1px solid white; */
 }
 #line1-left-pic{
     width: 100%;
     height:350px;
-    left: -5px;
+    /* left: -4px; */
     /* background-image: url("../images/master_27.jpg"); */
 }
 #line1-left-info{
@@ -326,7 +331,7 @@ h1{
 }
 #line1-right{
     position: relative;
-    width: calc(1/3 *100%);
+    /* width: calc(1/3 *100%); */
     height: 100%;
     /* border: 1px solid white; */
 }
@@ -405,13 +410,22 @@ h1{
   }
 .line2-section{
     position: relative;
-    width: calc(1/3*100%);
-    height: 100%;
+    flex-grow: 1;
+    /* width: calc(1/3*100%);
+    height: 100%; */
+}
+.line2:nth-child(even){
+    flex: 1 33.3%;
+}
+.line2:nth-child(even){
+    flex: 1 33.3%;
+}
+.line2:nth-child(even){
+    flex: 1 33.3%;
 }
 .line2-img{
     position: relative;
     width: 100%;
-    height: 350px;
 }
 .line2-info{
     margin-top: -5.5%;
