@@ -494,6 +494,7 @@ h1{
 .article{
     position: relative;
     max-width: 1440px;
+    width: 90%;
     /* background-color: black; */
     margin-top: 2.5%;
     margin-bottom: 2.5%;
@@ -908,6 +909,9 @@ video{
 /* ---------------------------------------------------------------max-width: 1024px--------------------------------------------------------------------- */
 
 @media only screen and (max-width: 1024px){
+    #section4{
+        height: 70vh;
+    }
     .line-responsive{
         margin-bottom: -0.6%;
     }
@@ -998,17 +1002,20 @@ video{
     .small-slider{
        top: 15%;
     }
-    .mover{
+    /* .mover{
         visibility: hidden;
-    }
+    } */
 }
 /* ---------------------------------------------------------------max-width: 768px--------------------------------------------------------------------- */
 
 /* FOR MOBILE */
 @media only screen and (max-width: 768px){
-    /* #section4{
-        height: auto;
-    } */
+    .article{
+        width: 90%;
+    }
+    #section4{
+        height: 100vh;
+    }
     .title-responsive{
         margin-bottom: 10%;
     }
@@ -1212,7 +1219,7 @@ video{
     .side-footer{
         height: 7.5%;   
     }
-    .mover{
+    /* .mover{
         display: none;
-    }
+    } */
 }
