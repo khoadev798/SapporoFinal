@@ -47,6 +47,19 @@ var app = new Vue({
         title:"THƯỞNG THỨC BIA CHUẨN VỊ",
         time:"23.03.2020 - 24.03.2020"
       },
+      {
+        id: 4,
+        smalls: [
+          { id: 30 },
+          { id: 31 },
+          { id: 32 },
+          { id: 33 },
+          { id: 34 },
+
+        ],
+        title:"SAPPORO MORNING",
+        time:"22.03.2020 - 25.03.2020"
+      },
     ],
     currentIndex: 0,
     current: 1,
