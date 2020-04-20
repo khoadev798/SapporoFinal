@@ -188,7 +188,7 @@
                               <p class="content5">{{slide.time}}</p>
                             </div>
                             <div class="side-footer" id="gallery-middle-footer">
-                              <img src="../../images1/ic_action_name.png" class="expand-icon" id="gallery-middle-icon">
+                              <img src="../../images1/ic_action_name.png" class="expand-icon-library" id="gallery-middle-icon">
                             </div>
                             <div id="panel" class="panel1">
                               <div v-for="slide, index in listLibrary" :class="{ active: isActive(index) }" class="small-images-slider">
@@ -237,7 +237,7 @@
     </div>
     <script>
         $(document).ready(function () {
-            $(".expand-icon").click(function () {
+            $(".expand-icon-library").click(function () {
                 if ($(this).attr("src") === "../../images/ic_action_name.png") {
                     // console.log("true");
                     $(this).attr("src", "../../images/Picture1.png");
