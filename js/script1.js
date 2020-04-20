@@ -259,12 +259,12 @@ $(document).ready(function () {
   var run1;
   $('#line1-icon1').hover(function(){
     if(flag1==0){
-      run1 = setTimeout(onClickAndDisableOtherClick(1),200);
+      run1 = onClickAndDisableOtherClick(1);
       }   
   });
   $('#line1-icon0').hover(function(){
     if(flag1==0){
-      run1 = setTimeout(onClickAndDisableOtherClick(0),200);
+      run1 = onClickAndDisableOtherClick(0);
     }
   });
   
@@ -343,18 +343,18 @@ $(document).ready(function () {
   }
   $('#line2-icon0').hover(function(){
     if(flag2==0){
-      run2 = setTimeout(onClickAndDisableOtherClickLine2(0),200);
+      run2 = onClickAndDisableOtherClickLine2(0);
     }
   });
   $('#line2-icon1').hover(function(){
     if(flag2==0){
-      run2 = setTimeout(onClickAndDisableOtherClickLine2(1),200);
+      run2 = onClickAndDisableOtherClickLine2(1);
 
     }   
   });
   $('#line2-icon2').hover(function(){
     if(flag2==0){
-      run2 = setTimeout(onClickAndDisableOtherClickLine2(2),200);
+      run2 = onClickAndDisableOtherClickLine2(2);
       }   
   });
   function onClickAndDisableOtherClickLine2(element2){
