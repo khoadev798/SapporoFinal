@@ -123,23 +123,38 @@
   .active {
     display:block;
   }
-  .numbertext {
-    color: #f2f2f2;
-    font-size: 12px;
-    padding: 8px 12px;
-    position: absolute;
-    z-index: 1;
-    top: 0;
-    right: 0;
-  }
-  .text {
-    color: #f2f2f2;
-    font-size: 15px;
-    padding: 0 12px;
-    position: absolute;
-    bottom: 8px;
-    z-index: 1;
-  }
+  .linetest {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .line1test {
+            flex-grow: 1;
+        }
+
+        .line1test:nth-child(even) {
+            flex: 1 33.3%;
+        }
+
+        .line1test:nth-child(odd) {
+            flex: 1 66.6%;
+        }
+
+        .line1test img, .line2-sectiontest img {
+            width: 100%;
+            height: 25vw !important;
+            margin-bottom: -4px;
+        }
+        .line2-sectiontest img{
+            margin-right: -2px;
+        }
+        .line2-sectiontest {
+            width: 33.3%;
+        }
+        .expandable-info img,.line2-expandable-info img{
+            width: 30px !important;
+            height: 30px !important;
+        }
 
     </style>
 </head>
@@ -207,23 +222,23 @@
                 <div class="foot-decoration" id="decoration1"></div>
             </div>
             <div class="article">
-                <div class="line">
+                <div class="linetest">
                     <!-- <div id="line1-dummy"></div> -->
-                    <div id="line1-left" class="line1">
-                        <img src="../images/master_27.jpg" alt="" id="line1-left-pic" style="padding-bottom: 1px;">
+                    <div class="line1test">
+                        <img src="../images/master_27.jpg" alt="" id="line1-left-pic">
                         <!-- <div id="line1-left-pic"></div> -->
-                        <div class="info" id="line1-info-left" style="padding-top: 3px;">
+                        <div style="margin-left: 1.5px;" class="info" id="line1-info-left">
                             <p class="content1">Chương trình Offline</p>
                             <p class="content1" id="content-big">SAPPORO CÙNG U23 VIỆT NAM</p>
                             <p class="content1">20.03.2020 - 29.03.2020</p>
                         </div>
-                        <div class="expandable-info">
+                        <div style="margin-left: 1.5px;" class="expandable-info">
                             <img src="../images/ic_action_name.png" class="expand-icon" id="line1-icon0">
                         </div>
                     </div>
-                    <div id="line1-right" class="line1">
-                        <img src="../images/master_28.jpg" alt="" id="line1-right-pic" style="z-index: 99;height: 350px;">
-                        <div class="info" id="right1" style="z-index: -1;margin-top: -3.5px;padding-top: 3px;" >
+                    <div class="line1test">
+                        <img src="../images/master_28.jpg" alt="" id="line1-right-pic" style="height: 350px;">
+                        <div class="info" id="right1" >
                             <p class="content2">Chương trình Offline</p>
                             <p class="content2" id="content-big">THƯỞNG THỨC BIA</p>
                             <p class="content2">20.03.2020 - 29.03.2020</p>
@@ -236,21 +251,21 @@
                 <div class="hidden-info" class="" id="show-info1">
                     Sapporo special
                 </div>
-                <div class="line line-responsive">
+                <div class="linetest line-responsive">
                     <!-- <div id="line2-dummy"></div> -->
-                    <div class="line2-section" id="line2-left">
+                    <div class="line2-sectiontest" id="line2-left">
                         <img class="line2-img" src="../images/master_28-34.jpg" alt="" style="height: 350px;">
-                        <div class="line2-info" id="line2-info-left">
+                        <div style="margin-left: 1.5px;" class="line2-info" id="line2-info-left">
                             <p class="content3">Chương trình Offline</p>
                             <p class="content32" id="content-big">PREMIUM BEER</p>
                             <p class="content33">20.03.2020 - 29.03.2020</p>
                         </div>
-                        <div class="line2-expandable-info" id="line2-expand-left">
+                        <div style="margin-left: 1.5px;" class="line2-expandable-info" id="line2-expand-left">
                             <img src="../images/ic_action_name.png" class="expand-icon" id="line2-icon0">
                         </div>
                     </div>
 
-                    <div class="line2-section" id="line2-middle" style="width: 33.3%">
+                    <div class="line2-sectiontest" id="line2-middle" style="width: 33.3%">
                         <img class="line2-img" src="../images/master_28-35.jpg" alt="" style="height: 350px;">
                         <div class="line2-info" id="line2-info-middle">
                             <p class="content3" style="color: black;">Chương trình Offline</p>
@@ -263,7 +278,7 @@
                         </div>
                     </div>
 
-                    <div class="line2-section" id="line2-right">
+                    <div class="line2-sectiontest" id="line2-right">
                         <img class="line2-img" src="../images/master_28-37.jpg" alt="">
                         <div class="line2-info" id="line2-info-right">
                             <p class="content3" style="color: black;">Chương trình Offline</p>
