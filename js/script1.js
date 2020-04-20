@@ -7,6 +7,9 @@ var app = new Vue({
     listPromo: [
 
     ],
+    testLibrary:[
+      
+    ],
     listLibrary: [
       {
         id: 1,
@@ -74,6 +77,9 @@ var app = new Vue({
   mounted: function () {
     // this.startRotation();
     this.getListImg();
+    this.getList();
+    
+
   },
   methods: {
     async getListImg() {
@@ -81,6 +87,15 @@ var app = new Vue({
       this.listImg = res.data.slides
       // console.log(this.listImg)
   },
+  async getList() {
+    let res = await axios.get('http://localhost/CMS_Sapporo/api.php?action=read_library')
+    this.testLibrary = res.data.librarys;
+    // localStorage.setItem("Text", this.testLibrary.smalls)
+    console.log(this.testLibrary)
+    var obj = this.testLibrary.smalls
+    console.log(obj)
+    // console.log(this.listImg)
+},
   isActive1: function (slide) {
     return this.current1 === slide;
   },
@@ -164,17 +179,6 @@ var app = new Vue({
   },
   }
 })
-
-
-
-
-
-
-
-
-
-
-
 // -----------------------------VUEJS--------------------------------------------------
 var imgAr = [];
 
@@ -466,11 +470,12 @@ $(document).ready(function () {
   $(".thumbnail").click(function () {
     var src1 = $(this).attr('src');
     console.log(src1);
-    var src_num = src1.substring(src1.indexOf("big") + 3, src1.lastIndexOf(".jpg"));
-    console.log(src_num);
-    console.log(imgAr[parseInt(src_num)].src);
-    $("#gallery-middle-image").attr("src", imgAr[parseInt(src_num)].src);
-    makeBorder(src_num);
+    $(".middletest").attr('src',src1);
+    // var src_num = src1.substring(src1.indexOf("big") + 3, src1.lastIndexOf(".jpg"));
+    // console.log(src_num);
+    // console.log(imgAr[parseInt(src_num)].src);
+    // $("#gallery-middle-image").attr("src", imgAr[parseInt(src_num)].src);
+    // makeBorder(src_num);
   });
   $("#previous").click(function () {
     var currentSrc = $("#gallery-middle-image").attr("src");
