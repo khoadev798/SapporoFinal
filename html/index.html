@@ -12,134 +12,8 @@
     <script src="../js/axios.min.js"></script>
     
     <style>
-        html {
-            scroll-behavior: smooth;
-        }
-        #panel {
-            /* padding: 50px; */
-            display: none;
-        }
+        
 
-        /* width */
-        .article ::-webkit-scrollbar {
-            width: 2em;  /* Total width including `border-width` of scrollbar thumb */
-            height: 0;
-        }
-        .hide-scrollbar1::-webkit-scrollbar-thumb {
-            height: 1em;
-            border: 0.8em solid rgb(225, 154, 62);; /* Transparent border together with `background-clip: padding-box` does the trick */
-            background-clip: padding-box;
-            -webkit-border-radius: 1em;
-        }
-
-        .hide-scrollbar2::-webkit-scrollbar-thumb {
-            height: 1em;
-            border: 0.8em solid #353535; /* Transparent border together with `background-clip: padding-box` does the trick */
-            background-clip: padding-box;
-            -webkit-border-radius: 1em;
-        }
-        .hide-scrollbar3::-webkit-scrollbar-thumb {
-            height: 1em;
-            border: 0.8em solid #353535; /* Transparent border together with `background-clip: padding-box` does the trick */
-            background-clip: padding-box;
-            -webkit-border-radius: 1em;
-        }
-        .hide-scrollbar4::-webkit-scrollbar-thumb {
-            height: 1em;
-            border: 0.8em solid#facd92; /* Transparent border together with `background-clip: padding-box` does the trick */
-            background-clip: padding-box;
-            -webkit-border-radius: 1em;
-        }
-        .hide-scrollbar5::-webkit-scrollbar-thumb {
-            height: 1em;
-            border: 0.8em solid #c6c6c6; /* Transparent border together with `background-clip: padding-box` does the trick */
-            background-clip: padding-box;
-            -webkit-border-radius: 1em;
-        }
-        .row {
-            display: -webkit-box;
-            display: -moz-box;
-            display: -ms-flexbox;
-            display: -webkit-flex;
-            display: flex;
-
-            -webkit-box-orient: horizontal;
-            -moz-box-orient: horizontal;
-            box-orient: horizontal;
-            flex-direction: row;
-
-            -webkit-box-pack: center;
-            -moz-box-pack: center;
-            box-pack: center;
-            justify-content: center;
-
-            -webkit-box-align: center;
-            -moz-box-align: center;
-            box-align: center;
-            align-items: center;
-            box-sizing: border-box;
-        }
-
-        .cell {
-            -webkit-box-flex: 1;
-            -moz-box-flex: 1;
-            box-flex: 1;
-            -webkit-flex: 1 1 auto;
-            flex: 1 1 auto;
-
-            /* padding: 10px; */
-            margin: 4px;
-            /* border: 1px solid white; */
-            background-color: #e19a3e;
-            text-align: center;
-        }
-
-        .cell img {
-            max-width: 100%;
-            /* height:150px; */
-            object-fit: cover;
-        }
-        /*--------------slide image-------------*/
-.slideshow__container {
-    overflow: hidden;
-    position: relative;
-    padding-top: calc(9 / 16 * 100%);
-    min-width: 100%;
-    width: 50vw;
-    height: 0;
-    display: none;  
-    background-color: rgba(0, 0, 0, 0.5);
-  }
-  .slideshow img {
-    display: block;
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    /* object-fit: cover; */
-    transition: opacity 1s;
-  }
-  .active {
-    display:block;
-  }
-  .numbertext {
-    color: #f2f2f2;
-    font-size: 12px;
-    padding: 8px 12px;
-    position: absolute;
-    z-index: 1;
-    top: 0;
-    right: 0;
-  }
-  .text {
-    color: #f2f2f2;
-    font-size: 15px;
-    padding: 0 12px;
-    position: absolute;
-    bottom: 8px;
-    z-index: 1;
-  }
 
     </style>
 </head>
@@ -179,24 +53,12 @@
                 </ul>
             </nav>
             <div class="slideshow" id="slideshow1">
-                <!-- <div class="slides" id="slideshow1">
-                    <div class="slide s1" id="slide1">
-                    </div>
-                    <div class="slide" id="slide2">
-                        <p id="text1">3 BƯỚC RÓT BIA<br>CHUẨN VỊ</p>
-                        <div id="parent">
-                            <p id="text2">TÌM HIỂU THÊM</p>
-                        </div>
-                    </div>
-                </div> -->
                 <div class="slideshow__container js-slideshow" :class="{ active: isActive(index) }"
                     v-for="slide, index in listImg">
                     <img :src="'http://demo.123vieclam.vn/images/banner' + slide.id + '.jpg'" />
                 </div>
                 <div class="navigation">
                     <div v-for="slide, index in listImg" :class="{ active: isActive(index) }" @click="currentSlide(index)" class="bar" id="bar1"></div>
-                    <!-- <div class="bar" id="bar2"></div> -->
-                    <!-- <div class="bar" id="bar3"></div> -->
                 </div>
             </div>
         </section>
@@ -302,78 +164,70 @@
                 <div class="foot-decoration" id="decoration2"></div>
             </div>
             <div class="gallery-image">
-                <div id="gallery-section1">
-                    <img class="side-image" src="../images/Sapporo-mua-le-hoi_2-sketch.jpg" alt="">
-                    <div class="side-info" id="gallery-left-info">
-                        <h3 class="content4" id="special-text" style="color: black;">SAPPORO SUMMER</h3>
-                        <p class="content5" style="color: black;">20.03.2020 - 29.03.2020</p>
-                    </div>
-                    <div class="side-footer" id="gallery-left-footer"></div>
-                </div>
-                <div id="gallery-section2">
-                    <img class="side-image" id="gallery-middle-image" height="120%"
-                        src="../images/Sapporo-mua-le-hoi_2-sketch2.jpg" alt="">
-                    <div class="side-info" id="gallery-middle-info">
-                        <h3 class="content4" id="special-text">SAPPORO NIGHT</h3>
-                        <p class="content5">20.03.2020 - 29.03.2020</p>
-                    </div>
-                    <div class="side-footer" id="gallery-middle-footer">
-                        <img src="../images/ic_action_name.png" class="expand-icon" id="gallery-middle-icon">
-                    </div>
-                    <div id="panel">
-                        <div class="small-images-slider">
-                            <div class="row">
-                                <div class="cell" >
-                                    <img id="small-slider1" class="thumbnail" src="../../images/big0.jpg" />
-                                </div>
-                                <div class="cell" >
-                                    <img id="small-slider2" class="thumbnail" src="../../images/big1.jpg" />
-                                </div>
-                                <div class="cell" >
-                                    <img id="small-slider3" class="thumbnail" src="../../images/big2.jpg" />
-                                </div>
-                                <div class="cell" >
-                                    <img id="small-slider4" class="thumbnail" src="../../images/big3.jpg" />
-                                </div>
-                                <div class="cell" >
-                                    <img id="small-slider5" class="thumbnail" src="../../images/big4.jpg" />
-                                </div>
+                
+                    <div class="cell">
+                        <div class="slideshow2" id="slideshow1">
+                          <div class="slideshow__containerleft js-slideshow" :class="{ active: isActive1(index) }"
+                            v-for="slide, index in listLibrary">
+                            <img width="100%" :src="'../../images1/test' + slide.id + '.jpg'" />
+                            <div class="side-info" id="gallery-left-info">
+                                <h3 style="color: black;" class="content4" id="special-text">{{slide.title}}</h3>
+                                <p style="color: black;" class="content5">{{slide.time}}</p>
+                              </div>
+                              <div id="gallery-left-footer" class="side-footer"></div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="cell">
+                        <div class="slideshow1" id="slideshow1">
+                            <div class="slideshow__containermid js-slideshow" :class="{ active: isActive(index) }"
+                            v-for="slide, index in listLibrary">
+                            <img width="100%" :src="'../../images1/test' + slide.id + '.jpg'" />
+                            <div class="side-info" id="gallery-middle-info">
+                              <h3 class="content4" id="special-text">{{slide.title}}</h3>
+                              <p class="content5">{{slide.time}}</p>
                             </div>
-                            <!-- <div class="small-slider" id="small-slider0"></div>
-                            <div class="small-slider" id="small-slider1"></div>
-                            <div class="small-slider" id="small-slider2"></div>
-                            <div class="small-slider" id="small-slider3"></div>
-                            <div class="small-slider" id="small-slider4"></div> -->
-
+                            <div class="side-footer" id="gallery-middle-footer">
+                              <img src="../../images1/ic_action_name.png" class="expand-icon" id="gallery-middle-icon">
+                            </div>
+                            <div id="panel" class="panel1">
+                              <div v-for="slide, index in listLibrary" :class="{ active: isActive(index) }" class="small-images-slider">
+                                <div class="row">
+                                  <div v-for="small in slide.smalls" class="small">
+                                    <img id="small-slider1" class="thumbnail" :src="'../../images1/big'+small.id+'.jpg'" />
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="mover">
+                                <div @click="prev()" class="run" id="previous">
+                                    <i class="fas fa-chevron-left"></i>
+                                </div>
+                                <div class="space"></div>
+                                <div  @click="next()" class="run" id="next">
+                                    <i style="margin-left: 3px;" class="fas fa-chevron-right"></i>
+                                </div>
+        
+                            </div>
+                          </div>
+                            
+                          </div>
                         </div>
+                    <div class="cell">
+                      <div class="slideshow3" id="slideshow1">
+                        <div class="slideshow__containerright js-slideshow" :class="{ active: isActive2(index) }"
+                          v-for="slide, index in listLibrary">
+                          <img width="100%" :src="'../../images1/test' + slide.id + '.jpg'" />
+                          <div class="side-info" id="gallery-right-info">
+                            <h3 class="content4" id="special-text">{{slide.title}}</h3>
+                            <p class="content5">{{slide.time}}</p>
+                          </div>
+                          <div id="gallery-right-footer" class="side-footer"></div>
+                        </div>
+                      </div>
                     </div>
-                    <div class="mover">
-                        <div class="run" id="previous">
-                            <i class="fas fa-chevron-left"></i>
-                        </div>
-                        <div class="space"></div>
-                        <div class="run" id="next">
-                            <i style="margin-left: 3px;" class="fas fa-chevron-right"></i>
-                        </div>
-
-                    </div>
+                    
                 </div>
-
-                <div id="gallery-section3">
-                    <img class="side-image" src="../images/Sapporo-mua-le-hoi_2-sketch1.jpg" alt="">
-                    <div class="side-info" id="gallery-right-info">
-                        <h3 class="content4" id="special-text">THƯỞNG THỨC BIA CHUẨN VỊ</h3>
-                        <p class="content5">20.03.2020 - 29.03.2020</p>
-                    </div>
-                    <div class="side-footer" id="gallery-right-footer">
-                    </div>
-                </div>
-            </div>
-
-
-
-
-
         </section>
         <footer>
             <div class="last">
@@ -383,16 +237,17 @@
     </div>
     <script>
         $(document).ready(function () {
-            $("#gallery-middle-icon").click(function () {
-                if ($(this).attr("src") === "../images/ic_action_name.png") {
+            $(".expand-icon").click(function () {
+                if ($(this).attr("src") === "../../images/ic_action_name.png") {
                     // console.log("true");
-                    $(this).attr("src", "../images/Picture1.png");
+                    $(this).attr("src", "../../images/Picture1.png");
                 }
                 else {
-                    $(this).attr("src", "../images/ic_action_name.png");
+                    $(this).attr("src", "../../images/ic_action_name.png");
                 }
-                $("#panel").slideToggle("slow");
+                $(".panel1").slideToggle("slow");
             });
+
         });
     </script>
     <script src="../js/script.js"></script>
