@@ -585,6 +585,12 @@ h1{
     /* margin-top: -20%; */
     margin: 0 auto;
 }
+.expand-icon-library {
+    width: 30px !important;
+    cursor: pointer;
+    /* margin-top: -20%; */
+    margin: 0 auto;
+}
 .hidden-info{
     /* padding-top: 2.5%; */
     line-height: 1.6;
