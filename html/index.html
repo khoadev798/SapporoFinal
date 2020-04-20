@@ -17,7 +17,12 @@
             display: flex;
             flex-wrap: wrap;
         }
-
+        .isBordered{
+            border: solid 1px white;
+        }
+        .noBorder{
+            border: none;
+        }
         .line1test {
             flex-grow: 1;
         }
@@ -131,7 +136,7 @@
                 <div class="hidden-info" class="" id="show-info1">
                     Sapporo special
                 </div>
-                <div class="linetest line-responsive">
+                <div class="linetest line-responsive" style="margin-top: 0.5em;">
                     <!-- <div id="line2-dummy"></div> -->
                     <div class="line2-sectiontest" id="line2-left">
                         <img class="line2-img" src="../images/master_28-34.jpg" alt="" style="height: 350px;">
@@ -215,7 +220,7 @@
                         <div class="slideshow1" id="slideshow1">
                             <div class="slideshow__containermid js-slideshow" :class="{ active: isActive(index) }"
                             v-for="slide, index in listLibrary">
-                            <img width="100%" :src="'../../images1/test' + slide.id + '.jpg'" class="middletest" />
+                            <img width="100%" :src="'../../images1/big' + slide.id + index + '.jpg'" class="middletest" />
                             <div class="side-info" id="gallery-middle-info">
                               <h3 class="content4" id="special-text">{{slide.title}}</h3>
                               <p class="content5">{{slide.time}}</p>

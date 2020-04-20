@@ -608,7 +608,7 @@ h1{
     height: 80px;
     color: white;
     margin-left: 0.1%;
-    /* margin-top: -0.9%; */
+    margin-top: 0.7%;
     display: none;
     overflow: auto;
     overflow-y:scroll;
@@ -1208,9 +1208,9 @@ video{
         height: 30%;
     }
     #after-video{
-        display: block;
-        height: 70%;
-        background-position: 50% 0%;
+        display: none;
+        /* height: 70%;
+        background-position: 50% 0%; */
     }
     /* .small-images-slider{
         bottom: 0%;
