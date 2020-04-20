@@ -7,8 +7,51 @@ var app = new Vue({
     listPromo: [
 
     ],
+    listLibrary: [
+      {
+        id: 1,
+        smalls: [
+          { id: 10 },
+          { id: 11 },
+          { id: 12 },
+          { id: 13 },
+          { id: 14 },
+
+        ],
+        title:"SAPPORO SUMMER",
+        time:"20.03.2020 - 29.03.2020"
+      },
+      {
+        id: 2,
+        smalls: [
+          { id: 20 },
+          { id: 21 },
+          { id: 22 },
+          { id: 23 },
+          { id: 24 },
+
+        ],
+        title:"SAPPORO NIGHT",
+        time:"21.03.2020 - 22.03.2020"
+      },
+      {
+        id: 3,
+        smalls: [
+          { id: 30 },
+          { id: 31 },
+          { id: 32 },
+          { id: 33 },
+          { id: 34 },
+
+        ],
+        title:"THƯỞNG THỨC BIA CHUẨN VỊ",
+        time:"23.03.2020 - 24.03.2020"
+      },
+    ],
     currentIndex: 0,
-    current: 0,
+    current: 1,
+    current1: 0,
+    current2: 2,
     speed: 3000,
     timer: null,
     errorMsg: false,
@@ -16,7 +59,7 @@ var app = new Vue({
     toggleCheck: false
   },
   mounted: function () {
-    this.startRotation();
+    // this.startRotation();
     this.getListImg();
   },
   methods: {
@@ -25,52 +68,87 @@ var app = new Vue({
       this.listImg = res.data.slides
       // console.log(this.listImg)
   },
-    startRotation: function () {
-      this.timer = setInterval(this.next, this.speed);
-    },
-    stopRotation: function () {
-      clearTimeout(this.timer);
-      this.timer = null;
-    },
-    next: function () {
-      var current = this.current;
-      var next = current + 1;
+  isActive1: function (slide) {
+    return this.current1 === slide;
+  },
+  setActive1: function (slide) {
+    this.current1 = slide;
+  },
+  isActive2: function (slide) {
+    return this.current2 === slide;
+  },
+  setActive2: function (slide) {
+    this.current2 = slide;
+  },
+  next: function () {
+    var current = this.current;
+    var next = current + 1;
 
-      if (next > this.listImg.length - 1) {
-        next = 0;
-      }
-      this.current = next;
-      this.setActive(this.current);
+    if (next > this.listLibrary.length - 1) {
+      next = 0;
+    }
+    this.current = next;
+    this.setActive(this.current);
 
 
-      // -------add active------
-      // var bars = document.getElementsByClassName("bar");
-      // console.log(bars.length)
-      // for (i = 0; i < bars.length; i++) {
-      //   bars[i].className = bars[i].className.replace(" active", "");
-      // }
-      // bars[this.current].className += " active";
-    },
-    // prev: function () {
-    //   var current = this.current;
-    //   var prev = current - 1;
+    var current1 = this.current1;
+    var next1 = current1 + 1;
 
-    //   if (prev < 0) {
-    //     prev = this.listImg.length -1;
-    //   }
+    if (next1 > this.listLibrary.length - 1) {
+      next1 = 0;
+    }
+    this.current1 = next1;
+    this.setActive1(this.current1);
+    // ------------------------------------------
+    var current2 = this.current2;
+    var next2 = current2 + 1;
 
-    //   this.current = prev;
-    //   this.setActive(this.current);
-    // },
-    isActive: function (slide) {
-      return this.current === slide;
-    },
-    setActive: function (slide) {
-      this.current = slide;
-    },
-    currentSlide(n) {
-      this.isActive(this.current = n);      
-    },
+    if (next2 > this.listLibrary.length - 1) {
+      next2 = 0;
+    }
+    this.current2 = next2;
+    this.setActive2(this.current2);
+  },
+  prev: function () {
+    var current = this.current;
+    var prev = current - 1;
+
+    if (prev < 0) {
+      prev = this.listLibrary.length - 1;
+    }
+
+    this.current = prev;
+    this.setActive(this.current);
+    // ---------------------------------------
+    var current1 = this.current1;
+    var prev1 = current1 - 1;
+
+    if (prev1 < 0) {
+      prev1 = this.listLibrary.length - 1;
+    }
+
+    this.current1 = prev1;
+    this.setActive1(this.current1);
+    // -----------------------------------------------
+    var current2 = this.current2;
+    var prev2 = current2 - 1;
+
+    if (prev2 < 0) {
+      prev2 = this.listLibrary.length - 1;
+    }
+
+    this.current2 = prev2;
+    this.setActive2(this.current2);
+  },
+  isActive: function (slide) {
+    return this.current === slide;
+  },
+  setActive: function (slide) {
+    this.current = slide;
+  },
+  currentSlide(n) {
+    this.isActive(this.current = n);
+  },
   }
 })
 
