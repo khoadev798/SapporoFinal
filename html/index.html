@@ -206,8 +206,8 @@
                     <div class="cell">
                         <div class="slideshow2" id="slideshow1">
                           <div class="slideshow__containerleft js-slideshow" :class="{ active: isActive1(index) }"
-                            v-for="slide, index in listLibrary">
-                            <img width="100%" :src="'../../images1/test' + slide.id + '.jpg'" />
+                            v-for="slide, index in testLibrary">
+                            <img width="100%" :src="'../../images1/big' + slide.id+'0' + '.jpg'" />
                             <div class="side-info" id="gallery-left-info">
                                 <h3 style="color: black;" class="content4" id="special-text">{{slide.title}}</h3>
                                 <p style="color: black;" class="content5">{{slide.time}}</p>
@@ -219,8 +219,8 @@
                       <div class="cell">
                         <div class="slideshow1" id="slideshow1">
                             <div class="slideshow__containermid js-slideshow" :class="{ active: isActive(index) }"
-                            v-for="slide, index in listLibrary">
-                            <img width="100%" :src="'../../images1/big' + slide.id + index + '.jpg'" class="middletest" />
+                            v-for="slide, index in testLibrary">
+                            <img width="100%" :src="'../../images1/big' + slide.id +'0' + '.jpg'" class="middletest" />
                             <div class="side-info" id="gallery-middle-info">
                               <h3 class="content4" id="special-text">{{slide.title}}</h3>
                               <p class="content5">{{slide.time}}</p>
@@ -229,7 +229,7 @@
                               <img src="../../images1/ic_action_name.png" class="expand-icon-library" id="gallery-middle-icon">
                             </div>
                             <div id="panel" class="panel1">
-                              <div v-for="slide, index in listLibrary" :class="{ active: isActive(index) }" class="small-images-slider">
+                              <div v-for="slide, index in testLibrary" :class="{ active: isActive(index) }" class="small-images-slider">
                                 <div class="row">
                                   <div v-for="small in slide.smalls" class="small">
                                     <img id="small-slider1" class="thumbnail" :src="'../../images1/big'+small.id+'.jpg'" />
@@ -255,8 +255,8 @@
                     <div class="cell">
                       <div class="slideshow3" id="slideshow1">
                         <div class="slideshow__containerright js-slideshow" :class="{ active: isActive2(index) }"
-                          v-for="slide, index in listLibrary">
-                          <img width="100%" :src="'../../images1/test' + slide.id + '.jpg'" />
+                          v-for="slide, index in testLibrary">
+                          <img width="100%" :src="'../../images1/big' + slide.id+'0' + '.jpg'" />
                           <div class="side-info" id="gallery-right-info">
                             <h3 class="content4" id="special-text">{{slide.title}}</h3>
                             <p class="content5">{{slide.time}}</p>
