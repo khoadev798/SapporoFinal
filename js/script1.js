@@ -136,6 +136,7 @@ var app = new Vue({
     }
     this.current2 = next2;
     this.setActive2(this.current2);
+    
   },
   prev: function () {
     var current = this.current;
@@ -481,10 +482,14 @@ $(document).ready(function () {
     }
   }
   // makeBorder();
+  function makeBorderFromMiddle(){
   var srcMiddle =  $(".middletest").attr('src');
   console.log(srcMiddle);
-  
-  makeBorder("../../"+srcMiddle.substring(srcMiddle.indexOf('images1')));
+  makeBorder("../../"+srcMiddle.substring(srcMiddle.indexOf('images1')));}
+  makeBorderFromMiddle();
+  $('.run').click(function(){
+    makeBorderFromMiddle();
+  })
   $(".thumbnail").click(function () {
     var src1 = $(this).attr('src');
     // $(this).addClass('active101');
@@ -511,7 +516,6 @@ $(document).ready(function () {
       num--;
       $("#gallery-middle-image").attr("src", imgAr[num].src);
     }
-    makeBorder(num);
   });
 
   $("#next").click(function () {
@@ -527,7 +531,6 @@ $(document).ready(function () {
       num++;
       $("#gallery-middle-image").attr("src", imgAr[num].src);
     }
-    makeBorder(num);
   });
   
   // $("a").mouseover(function () {
