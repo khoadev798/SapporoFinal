@@ -90,11 +90,7 @@ var app = new Vue({
   async getList() {
     let res = await axios.get('http://localhost/CMS_Sapporo/api.php?action=read_library')
     this.testLibrary = res.data.librarys;
-    // localStorage.setItem("Text", this.testLibrary.smalls)
-    console.log(this.testLibrary)
-    var obj = this.testLibrary.smalls
-    console.log(obj)
-    // console.log(this.listImg)
+
 },
   isActive1: function (slide) {
     return this.current1 === slide;
