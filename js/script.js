@@ -12,21 +12,24 @@ $(document).ready(function(){
     const ul = document.getElementsByClassName('ul1')[0];
     toggleButton.click(function(){
         console.log("a");
-        
-        ul.classList.toggle('active');
+        // $('.ul1').show();
+        ul.classList.toggle('active1');
+        // $('ul1').slideToggle();
     });
     var width = screen.width
     console.log(width);
-    if(width>768){
+
+
     document.getElementById('myVideo').addEventListener('ended',myHandler,false);
-    }
+    
 
     
     function myHandler(e){
-        var div = document.getElementById("after-video");
-        div.classList.remove("div-hide");
-        if(width>768){
-        $("#myVideo").css("display","none");}
+        // var div = document.getElementById("after-video");
+        // div.classList.remove("div-hide");
+        
+        $("#myVideo").css("display","none");
+        $("#after-video").css("display","block");
         // div.innerHTML = "I'm showing";
     }
 });

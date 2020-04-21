@@ -294,7 +294,7 @@ $(document).ready(function () {
           flag1 = 1;
           if ($(this).attr("src") === "../images/ic_action_name.png") {
             console.log("true");
-            $(".line-responsive").css('margin-top', '0em');
+            // $(".line-responsive").css('margin-top', '0em');
             $(this).attr("src", "../images/Picture1.png");
             changeInsideOfHiddenInfo1(element);
             $("#show-info1").addClass('hide-scrollbar'+(element+1));
@@ -302,7 +302,7 @@ $(document).ready(function () {
           }
           else {
             $(this).attr("src", "../images/ic_action_name.png");
-            $(".line-responsive").css('margin-top', '0.5em');
+            // $(".line-responsive").css('margin-top', '0.5em');
 
 
             flag1 = 0;
