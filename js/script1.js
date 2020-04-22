@@ -82,7 +82,8 @@ var app = new Vue({
     // this.startRotation();
     this.getListImg();
     this.getList();
-    
+    // this.makeBorder("../../images1/big10.jpg");
+  
   },
   methods: {
     async getListImg() {
@@ -180,8 +181,12 @@ var app = new Vue({
       }
       this.current2 = next2;
       this.setActive2(this.current2);
-      var srcMiddle = $(".middletest").attr('src');
-      console.log(srcMiddle);
+      var middleTestt = document.getElementsByClassName('middletest');
+
+      var srcMiddle = middleTestt[next].src;
+      var srcTrans = srcMiddle.substring(srcMiddle.indexOf('images1'));
+      console.log(srcTrans + "zzzzzzzzzz");
+      
       this.makeBorder("../../" + srcMiddle.substring(srcMiddle.indexOf('images1')));
     },
     prev: function () {
@@ -530,13 +535,13 @@ $(document).ready(function () {
       }
     }
   }
-  makeBorder();
-  function makeBorderFromMiddle() {
-    var srcMiddle = $(".middletest").attr('src');
-    console.log(srcMiddle);
-    makeBorder("../../" + srcMiddle.substring(srcMiddle.indexOf('images1')));
-  }
-  makeBorderFromMiddle();
+  
+  // function makeBorderFromMiddle() {
+  //   var srcMiddle = $(".middletest").attr('src');
+  //   console.log(srcMiddle);
+  //   makeBorder("../../" + srcMiddle.substring(srcMiddle.indexOf('images1')));
+  // }
+  // makeBorderFromMiddle();
   $('.run').click(function () {
     makeBorderFromMiddle();
   })
