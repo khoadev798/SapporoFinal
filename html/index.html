@@ -7,6 +7,7 @@
     <title>Sapporo Summer!</title>
     <link rel="stylesheet" href="../css/style.css">
     <link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.5.0/css/all.css'>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
     <script src="../js/jQuery.js"></script>
     <script src="../js/vue.js"></script>
     <script src="../js/axios.min.js"></script>
@@ -203,14 +204,14 @@
             </div>
             <div class="gallery-image">
                 
-                    <div class="cell">
+                    <div class="cell" id="left-cell">
                         <div class="slideshow2" id="slideshow1">
                           <div class="slideshow__containerleft js-slideshow" :class="{ active: isActive1(index) }"
-                            v-for="slide, index in testLibrary">
+                            v-for="slide, index in listLibrary">
                             <img width="100%" :src="'../../images1/big' + slide.id+'0' + '.jpg'" />
                             <div class="side-info" id="gallery-left-info">
                                 <h3 style="color: black;" class="content4" id="special-text">{{slide.title}}</h3>
-                                <p style="color: black;" class="content5">{{slide.time}}</p>
+                                <p style="color: black;" class="content5">{{frontEndDateFormat(slide.time_start)}} - {{frontEndDateFormat(slide.time_end)}}</p>
                               </div>
                               <div id="gallery-left-footer" class="side-footer"></div>
                           </div>
@@ -218,22 +219,22 @@
                       </div>
                       <div class="cell">
                         <div class="slideshow1" id="slideshow1">
-                            <div class="slideshow__containermid js-slideshow" :class="{ active: isActive(index) }"
-                            v-for="slide, index in testLibrary">
-                            <img width="100%" :src="'../../images1/big' + slide.id +'0' + '.jpg'" class="middletest" />
+                            <div class="slideshow__containermid js-slideshow" :class="{ active: isActive0(index) }"
+                            v-for="slide, index in listLibrary">
+                            <img width="100%" :src="'../../images1/big' + (slide.id) +'0' + '.jpg'"  class="middletest" />
                             <div class="side-info" id="gallery-middle-info">
                               <h3 class="content4" id="special-text">{{slide.title}}</h3>
-                              <p class="content5">{{slide.time}}</p>
+                              <p class="content5">{{frontEndDateFormat(slide.time_start)}} - {{frontEndDateFormat(slide.time_end)}}</p>
                             </div>
                             <div class="side-footer" id="gallery-middle-footer">
-                              <img src="../../images1/ic_action_name.png" class="expand-icon-library" id="gallery-middle-icon">
+                              <img @click="down();" src="../../images1/ic_action_name.png" class="expand-icon-library" id="gallery-middle-icon">
                             </div>
                             <div id="panel" class="panel1">
-                              <div v-for="slide, index in testLibrary" :class="{ active: isActive(index) }" class="small-images-slider">
+                              <div v-for="slide, index in listLibrary" :class="{ active: isActive0(index) }" class="small-images-slider">
                                 <div class="row">
                                   <div v-for="small in slide.smalls" class="small">
-                                    <img id="small-slider1" class="thumbnail" :src="'../../images1/big'+small.id+'.jpg'" />
-                                    {{small.id}}
+                                    <img @click="activeSrc(small.id);" :id="'small-slider'+small.id" class="thumbnail" :src="'../../images1/big'+small.id+'.jpg'" />
+                                    <!-- {{small.id}} -->
                                   </div>
                                 </div>
                               </div>
@@ -252,14 +253,14 @@
                             
                           </div>
                         </div>
-                    <div class="cell">
+                    <div class="cell" id="right-cell">
                       <div class="slideshow3" id="slideshow1">
                         <div class="slideshow__containerright js-slideshow" :class="{ active: isActive2(index) }"
-                          v-for="slide, index in testLibrary">
+                          v-for="slide, index in listLibrary">
                           <img width="100%" :src="'../../images1/big' + slide.id+'0' + '.jpg'" />
                           <div class="side-info" id="gallery-right-info">
                             <h3 class="content4" id="special-text">{{slide.title}}</h3>
-                            <p class="content5">{{slide.time}}</p>
+                            <p class="content5">{{frontEndDateFormat(slide.time_start)}} - {{frontEndDateFormat(slide.time_end)}}</p>
                           </div>
                           <div id="gallery-right-footer" class="side-footer"></div>
                         </div>
@@ -276,14 +277,7 @@
     <script>
         $(document).ready(function () {
             $(".expand-icon-library").click(function () {
-                if ($(this).attr("src") === "../../images/ic_action_name.png") {
-                    // console.log("true");
-                    $(this).attr("src", "../../images/Picture1.png");
-                }
-                else {
-                    $(this).attr("src", "../../images/ic_action_name.png");
-                }
-                $(".panel1").slideToggle("slow");
+                
             });
 
         });
