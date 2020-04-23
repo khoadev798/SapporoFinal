@@ -206,7 +206,7 @@ body{
     margin: 0px;
     width: 100%;
     top: 0px;
-    
+    background-color: transparent;
 }
 @font-face{
         font-family: BoldTitle;
@@ -711,7 +711,7 @@ video{
     position: relative;
     text-align: center;
     width: 100%;
-    height: 140vh;
+    height: 120vh;
 }
 .gallery-image{
     margin-top:2%;
@@ -878,7 +878,19 @@ video{
     color: white;
 }
 .toggleFooter{
-    margin-top: 7.5%;
+        /* border-top: 50px solid transparent; */
+        
+            /* margin-top: 2.5%;  */
+         /* bottom: -120px; */
+}
+.footer-wrapper{
+    background-color: transparent;
+    position: absolute;
+    width: 100%;
+    height: auto;
+    bottom: -15px;
+    z-index: -500;
+    /* clear: both; */
 }
 .last{
     /* width: 100%; */
@@ -886,7 +898,7 @@ video{
     /* bottom: -2.5%; */
     /* padding-top: 0.75%; */
     /* position: absolute; */
-    position: relative;
+    /* position: relative; */
     clear: both;
     /* bottom: 0; */
     background-color: #a3a3a3;

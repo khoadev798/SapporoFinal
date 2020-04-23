@@ -495,8 +495,17 @@ $(document).ready(function () {
   //   $("#show-info2").html("Hinh 5");
   // });
 
-  $("#gallery-middle-icon").click(function () {
-   $('.last').toggleClass('toggleFooter');
+  $(".expand-icon-library").click(function () {
+  // $('.footer-wrapper').toggleClass('toggleFooter');
+  if ($(this).attr("src") === "../../images1/ic_action_name.png") {
+      $(this).attr("src", "../../images1/Picture1.png");
+      $('.footer-wrapper').css('bottom','-100px');
+    }
+    else {
+      $(this).attr("src", "../../images1/ic_action_name.png");
+      $('.footer-wrapper').css('bottom','-15px');
+
+    }
     // $(".small-images-slider").slideToggle("slow");
     // $(".small-images-slider").css("visibility", "visible"); 
   });
