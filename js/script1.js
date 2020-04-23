@@ -494,16 +494,24 @@ $(document).ready(function () {
   //   $("#show-info2").css("background-color", "#c6c6c6");
   //   $("#show-info2").html("Hinh 5");
   // });
-
+  var atFirst = $("#section4").css('padding-bottom');
+  var screenHeight = screen.height;
+  var atFirstValue = parseFloat(atFirst.substring(0,atFirst.indexOf('p')));
+  console.log(atFirst);
+  
   $(".expand-icon-library").click(function () {
   // $('.footer-wrapper').toggleClass('toggleFooter');
+
   if ($(this).attr("src") === "../../images1/ic_action_name.png") {
       $(this).attr("src", "../../images1/Picture1.png");
-      $('.footer-wrapper').css('bottom','-100px');
+      $("#section4").css('padding-bottom', (atFirstValue+screenHeight*20/100)+"px");
+      // $('.footer-wrapper').animate({bottom:(atFirstValue-15)+"px"}, 'slow');
     }
     else {
       $(this).attr("src", "../../images1/ic_action_name.png");
-      $('.footer-wrapper').css('bottom','-15px');
+      $("#section4").css('padding-bottom', (atFirstValue)+"px");
+      // $('.footer-wrapper').animate({bottom:(atFirstValue)+"px"}, 'slow');
+
 
     }
     // $(".small-images-slider").slideToggle("slow");

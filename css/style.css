@@ -711,7 +711,8 @@ video{
     position: relative;
     text-align: center;
     width: 100%;
-    height: 120vh;
+    height: 100vh;
+    padding-bottom:0vh;
 }
 .gallery-image{
     margin-top:2%;
@@ -851,6 +852,7 @@ video{
     display: flex;
     text-align: center;
     color: black;
+    z-index: 999;
 }
 /* .mover:hover{
     background-color: black;
@@ -883,33 +885,25 @@ video{
             /* margin-top: 2.5%;  */
          /* bottom: -120px; */
 }
-.footer-wrapper{
-    background-color: transparent;
-    position: absolute;
+.end{
+    position: relative;
     width: 100%;
-    height: auto;
-    bottom: -15px;
-    z-index: -500;
-    /* clear: both; */
-}
-.last{
-    /* width: 100%; */
-    /* height: 15%; */
-    /* bottom: -2.5%; */
-    /* padding-top: 0.75%; */
-    /* position: absolute; */
-    /* position: relative; */
-    clear: both;
-    /* bottom: 0; */
-    background-color: #a3a3a3;
-    font-size: 0.8em;
-    color: white;
-    height: 5%;
+    height: 5vh;
     text-align: center;
     font-family: Regular;
-    padding: 20px;
-    z-index: -1;
+    
+    font-size: 1em;
+    /* padding: 10px; */
+    background: gray;
+    padding-top: 1%;
+    color: white;
+    z-index: -1000;
+    top: -10%;
 }
+/* @keyframes mymove {
+    from {bottom: -15px;}
+    to {bottom: -100px;}
+  } */
 /* ---------------------------------------------------------------min-width: 1024px--------------------------------------------------------------------- */
 @media only screen and (min-width: 1024px){
     ul{
@@ -1076,6 +1070,7 @@ video{
     }
     #section4{
         height: 100vh;
+        padding-bottom: 0vh;
     }
     .title-responsive{
         margin-bottom: 10%;
@@ -1290,13 +1285,20 @@ video{
     .side-footer{
         height: 7.5%;   
     }
+    .end{
+        font-size: 1em;
+    }
     /* .mover{
         display: none;
     } */
+
 }
 /* ---------------------------------------------------------------max-width: 500px--------------------------------------------------------------------- */
 
 @media only screen and (max-width: 500px){
+    .end{
+        font-size: 0.6em;
+    }
     .middletest{
         height: 50% !important;
     }
@@ -1314,6 +1316,10 @@ video{
     }
     #section3{
         margin-top: 10%;
+    }
+    #section4{
+        height: 80vh;
+        padding-bottom: 8vh;
     }
     .expandable-info img, .line2-expandable-info img{
         width: 20px !important;
@@ -1349,5 +1355,8 @@ video{
         margin-top: 0%;
         width: 25vw;
         height: 10vw;
+    }
+    .footer-wrapper{
+        top: 0;
     }
 }
