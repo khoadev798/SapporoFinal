@@ -495,22 +495,11 @@ $(document).ready(function () {
   //   $("#show-info2").html("Hinh 5");
   // });
 
-  // $("#gallery-middle-icon").click(function () {
-  //   if ($(this).attr("src") === "../images/ic_action_name.png") {
-  //     console.log("true");
-  //     $(this).attr("src", "../images/Picture1.png");
-  //     $(".small-images-slider").height("15%");
-  //     $(".last").css("bottom","-7.5%");
-  //   }
-  //   else {
-  //     $(this).attr("src", "../images/ic_action_name.png");
-  //     $(".small-images-slider").height("0%");
-  //     $(".last").css("bottom","0%");
-
-  //   }
-  //   // $(".small-images-slider").slideToggle("slow");
-  //   // $(".small-images-slider").css("visibility", "visible"); 
-  // });
+  $("#gallery-middle-icon").click(function () {
+   $('.last').toggleClass('toggleFooter');
+    // $(".small-images-slider").slideToggle("slow");
+    // $(".small-images-slider").css("visibility", "visible"); 
+  });
 
   // for(var k = 0; k < 5; k++){
   //       $("#small-slider"+k).css("border", "1px solid white");
