@@ -22,8 +22,8 @@ var app = new Vue({
 
         ],
         title: "SAPPORO NIGHT",
-        time_start:"2020-03-20",
-        time_end:"2020-03-20"
+        time_start: "2020-03-20",
+        time_end: "2020-03-20"
       },
       {
         id: 2,
@@ -36,8 +36,8 @@ var app = new Vue({
 
         ],
         title: "THƯỞNG THỨC BIA CHUẨN VỊ",
-        time_start:"2020-03-20",
-        time_end:"2020-03-20"
+        time_start: "2020-03-20",
+        time_end: "2020-03-20"
       },
       {
         id: 3,
@@ -50,8 +50,8 @@ var app = new Vue({
 
         ],
         title: "SAPPORO NIGHT",
-        time_start:"2020-03-20",
-        time_end:"2020-03-20"
+        time_start: "2020-03-20",
+        time_end: "2020-03-20"
       },
       // {
       //   id: 4,
@@ -83,7 +83,7 @@ var app = new Vue({
     this.getListImg();
     this.getList();
     // this.makeBorder("../../images1/big10.jpg");
-  
+
   },
   methods: {
     async getListImg() {
@@ -186,7 +186,7 @@ var app = new Vue({
       var srcMiddle = middleTestt[next].src;
       var srcTrans = srcMiddle.substring(srcMiddle.indexOf('images1'));
       console.log(srcTrans + "zzzzzzzzzz");
-      
+
       this.makeBorder("../../" + srcMiddle.substring(srcMiddle.indexOf('images1')));
     },
     prev: function () {
@@ -229,9 +229,9 @@ var app = new Vue({
     currentSlide(n) {
       this.isActive(this.current = n);
     },
-    frontEndDateFormat: function(date) {
+    frontEndDateFormat: function (date) {
       return moment(date, 'YYYY-MM-DD').format('DD.MM.YYYY');
-  },
+    },
   }
 })
 // -----------------------------VUEJS--------------------------------------------------
@@ -327,49 +327,116 @@ $(document).ready(function () {
     $("#show-info1").css("background-color", hiddenInfo1ToShow[hiddenNum1].bgColor);
     $("#show-info1").html(hiddenInfo1ToShow[hiddenNum1].html)
   }
-  var flag1 = 0;
-  var run1;
-  $('#line1-icon1').hover(function () {
-    if (flag1 == 0) {
-      run1 = onClickAndDisableOtherClick(1);
-    }
-  });
-  $('#line1-icon0').hover(function () {
-    if (flag1 == 0) {
-      run1 = onClickAndDisableOtherClick(0);
-    }
-  });
+  // var flag1 = 0;
+  var isDownAlready = 0;
+  function allowOnlyOneDownUpArrow(id) {
+    for (var arrow1 = 0; arrow1 < 2; arrow1++) {
+      if (arrow1 == id && isDownAlready != 0) {
+        $('#line1-icon' + id).attr("src", "../images/Picture1.png");
+        var classList = $('#show-info1').attr('class').split(/\s+/);
+        $.each(classList, function (index, item) {
+          if (item.includes('hide-scrollbar')) {
+            //do something
+            $("#show-info1").removeClass(item);
 
-  // $('#line1-icon1').hover(onClickAndDisableOtherClick(0));
-  function onClickAndDisableOtherClick(element) {
-    for (var t = 0; t < 2; t++) {
-      if (t == element) {
-        $('#line1-icon' + element).click(function () {
-          flag1 = 1;
-          if ($(this).attr("src") === "../images/ic_action_name.png") {
-            console.log("true");
-            // $(".line-responsive").css('margin-top', '0em');
-            $(this).attr("src", "../images/Picture1.png");
-            changeInsideOfHiddenInfo1(element);
-            $("#show-info1").addClass('hide-scrollbar' + (element + 1));
-            $("#show-info1").stop(true).slideDown('slow');
-          }
-          else {
-            $(this).attr("src", "../images/ic_action_name.png");
-            // $(".line-responsive").css('margin-top', '0.5em');
-
-
-            flag1 = 0;
-            $("#show-info1").slideUp('slow');
-            $("#show-info1").removeClass('hide-scrollbar' + (element + 1));
           }
         });
+        $("#show-info1").addClass('hide-scrollbar' + (id + 1));
+        changeInsideOfHiddenInfo1(id);
       }
       else {
-        $('#line1-icon' + t).unbind('click');
+        $('#line1-icon' + arrow1).attr("src", "../images/ic_action_name.png");
       }
     }
   }
+  // var run1;
+  $('#line1-icon0').click(function () {
+    if (isDownAlready == 0 && $(this).attr("src") === "../images/ic_action_name.png") {
+      isDownAlready = 1;
+      $(this).attr("src", "../images/Picture1.png");
+      $("#show-info1").slideDown('slow');
+      $("#show-info1").addClass('hide-scrollbar' + (0 + 1));
+      changeInsideOfHiddenInfo1(0);
+
+    }
+    else if (isDownAlready == 1 && $(this).attr("src") === "../images/Picture1.png") {
+      $("#show-info1").slideUp('slow');
+      isDownAlready = 0;
+      $(this).attr("src", "../images/ic_action_name.png");
+      $("#show-info1").removeClass('hide-scrollbar' + (0 + 1));
+
+      // allowOnlyOneDownUpArrow(0);
+    }
+    else {
+      allowOnlyOneDownUpArrow(0);
+    }
+  });
+  $('#line1-icon1').click(function () {
+    if (isDownAlready == 0 && $(this).attr("src") === "../images/ic_action_name.png") {
+      isDownAlready = 1;
+      $(this).attr("src", "../images/Picture1.png");
+      $("#show-info1").slideDown('slow');
+      $("#show-info1").addClass('hide-scrollbar' + (1 + 1));
+      changeInsideOfHiddenInfo1(1);
+    }
+    else if (isDownAlready == 1 && $(this).attr("src") === "../images/Picture1.png") {
+      $("#show-info1").slideUp('slow');
+      isDownAlready = 0;
+      $(this).attr("src", "../images/ic_action_name.png");
+      $("#show-info1").removeClass('hide-scrollbar' + (1 + 1));
+
+      // allowOnlyOneDownUpArrow(1);
+    }
+    else {
+      allowOnlyOneDownUpArrow(1);
+    }
+  });
+  // $('#line1-icon1').click(function(){
+  //   isDownAlready = 1;
+  //   run1 = changeInsideOfHiddenInfo1(1);
+  //   $("#show-info1").slideToggle('slow');
+  // });
+  // $('#line1-icon1').hover(function () {
+  //   if (flag1 == 0) {
+  //     run1 = onClickAndDisableOtherClick(1);
+  //   }
+  // });
+  // $('#line1-icon0').hover(function () {
+  //   if (flag1 == 0) {
+  //     run1 = onClickAndDisableOtherClick(0);
+  //   }
+  // });
+
+  // $('#line1-icon1').hover(onClickAndDisableOtherClick(0));
+  // function onClickAndDisableOtherClick(element) {
+  //   for (var t = 0; t < 2; t++) {
+  //     if (t == element) {
+  //       $('#line1-icon' + element).click(function () {
+  //         flag1 = 1;
+  //         if ($(this).attr("src") === "../images/ic_action_name.png") {
+  //           console.log("true");
+  //           // $(".line-responsive").css('margin-top', '0em');
+  //           $(this).attr("src", "../images/Picture1.png");
+  //           changeInsideOfHiddenInfo1(element);
+  //           $("#show-info1").addClass('hide-scrollbar' + (element + 1));
+  //           $("#show-info1").stop(true).slideDown('slow');
+  //         }
+  //         else {
+  //           $(this).attr("src", "../images/ic_action_name.png");
+  //           // $(".line-responsive").css('margin-top', '0.5em');
+
+
+  //           flag1 = 0;
+  //           $("#show-info1").slideUp('slow');
+  //           $("#show-info1").removeClass('hide-scrollbar' + (element + 1));
+  //         }
+  //       });
+  //     }
+  //     else {
+  //       $('#line1-icon' + t).unbind('click');
+  //     }
+  //   }
+  // }
   // $("#line1-icon0").click(function () {
   //   if ($(this).attr("src") === "../images/ic_action_name.png") {
   //     console.log("true");
@@ -411,53 +478,137 @@ $(document).ready(function () {
   hiddenInfo1ToShow1[0] = { bgColor: '#353535', html: '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum convallis dolor nisl. Ut consequat risus a turpis portitor, quis feugiat velit eleifend. Donec interdum elementum neque. Mauris interdum nibh vitae molestie commodo. Mauris parta felis sapien, vitae hendrerit arcu lacinia non. Sed sapien ipsum, ornare quis magna vitae, iaculis semper auge. Sed pulvinar odio in dictum euismod.</p><p>Morbi tincidunt sodales ipsum, nec porta magna tincidunt sit amet. Aenean porta justo ut molis imperdiet. Nunc varius velit quis nunc parta, quis.</p>' };
   hiddenInfo1ToShow1[1] = { bgColor: '#facd92', html: '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum convallis dolor nisl. Ut consequat risus a turpis portitor, quis feugiat velit eleifend. Donec interdum elementum neque. Mauris interdum nibh vitae molestie commodo. Mauris parta felis sapien, vitae hendrerit arcu lacinia non. Sed sapien ipsum, ornare quis magna vitae, iaculis semper auge. Sed pulvinar odio in dictum euismod.</p><p>Morbi tincidunt sodales ipsum, nec porta magna tincidunt sit amet. Aenean porta justo ut molis imperdiet. Nunc varius velit quis nunc parta, quis.</p>' };
   hiddenInfo1ToShow1[2] = { bgColor: '#c6c6c6', html: '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum convallis dolor nisl. Ut consequat risus a turpis portitor, quis feugiat velit eleifend. Donec interdum elementum neque. Mauris interdum nibh vitae molestie commodo. Mauris parta felis sapien, vitae hendrerit arcu lacinia non. Sed sapien ipsum, ornare quis magna vitae, iaculis semper auge. Sed pulvinar odio in dictum euismod.</p><p>Morbi tincidunt sodales ipsum, nec porta magna tincidunt sit amet. Aenean porta justo ut molis imperdiet. Nunc varius velit quis nunc parta, quis.</p>' };
-  var flag2 = 0;
-  var run2;
+  // var flag2 = 0;
+  // var run2;
   function changeInsideOfHiddenInfo2(hiddenNum2) {
     $("#show-info2").css("background-color", hiddenInfo1ToShow1[hiddenNum2].bgColor);
     $("#show-info2").html(hiddenInfo1ToShow1[hiddenNum2].html)
   }
-  $('#line2-icon0').hover(function () {
-    if (flag2 == 0) {
-      run2 = onClickAndDisableOtherClickLine2(0);
-    }
-  });
-  $('#line2-icon1').hover(function () {
-    if (flag2 == 0) {
-      run2 = onClickAndDisableOtherClickLine2(1);
+  var isDownAlready2 = 0;
+  function allowOnlyOneDownUpArrow2(id2) {
+    for (var arrow2 = 0; arrow2 < 3; arrow2++) {
+      if (arrow2 == id2 && isDownAlready2 != 0) {
+        $('#line2-icon' + id2).attr("src", "../images/Picture1.png");
+        var classList = $('#show-info2').attr('class').split(/\s+/);
+        $.each(classList, function (index, item) {
+          if (item.includes('hide-scrollbar')) {
+            //do something
+            $("#show-info2").removeClass(item);
 
-    }
-  });
-  $('#line2-icon2').hover(function () {
-    if (flag2 == 0) {
-      run2 = onClickAndDisableOtherClickLine2(2);
-    }
-  });
-  function onClickAndDisableOtherClickLine2(element2) {
-    for (var t = 0; t < 3; t++) {
-      if (t == element2) {
-        $('#line2-icon' + element2).click(function () {
-          flag2 = 1;
-          if ($(this).attr("src") === "../images/ic_action_name.png") {
-            console.log("true");
-            $(this).attr("src", "../images/Picture1.png");
-            changeInsideOfHiddenInfo2(element2);
-            $("#show-info2").addClass('hide-scrollbar' + (element2 + 3));
-            $("#show-info2").stop(true).slideDown('slow');
-          }
-          else {
-            $(this).attr("src", "../images/ic_action_name.png");
-            flag2 = 0;
-            $("#show-info2").slideUp('slow');
-            $("#show-info2").removeClass('hide-scrollbar' + (element2 + 3));
           }
         });
+        $("#show-info2").addClass('hide-scrollbar' + (id2 + 3));
+        changeInsideOfHiddenInfo2(id2);
       }
       else {
-        $('#line2-icon' + t).unbind('click');
+        $('#line2-icon' + arrow2).attr("src", "../images/ic_action_name.png");
       }
     }
   }
+  $('#line2-icon0').click(function () {
+    if (isDownAlready2 == 0 && $(this).attr("src") === "../images/ic_action_name.png") {
+      isDownAlready2 = 1;
+      $(this).attr("src", "../images/Picture1.png");
+      $("#show-info2").slideDown('slow');
+      $("#show-info2").addClass('hide-scrollbar' + (0 + 3));
+      changeInsideOfHiddenInfo2(0);
+
+    }
+    else if (isDownAlready2 == 1 && $(this).attr("src") === "../images/Picture1.png") {
+      $("#show-info2").slideUp('slow');
+      isDownAlready2 = 0;
+      $(this).attr("src", "../images/ic_action_name.png");
+      $("#show-info2").removeClass('hide-scrollbar' + (0 + 3));
+
+      // allowOnlyOneDownUpArrow(0);
+    }
+    else {
+      allowOnlyOneDownUpArrow2(0);
+    }
+  });
+  $('#line2-icon1').click(function () {
+    if (isDownAlready2 == 0 && $(this).attr("src") === "../images/ic_action_name.png") {
+      isDownAlready2 = 1;
+      $(this).attr("src", "../images/Picture1.png");
+      $("#show-info2").slideDown('slow');
+      $("#show-info2").addClass('hide-scrollbar' + (1 + 3));
+      changeInsideOfHiddenInfo2(1);
+
+    }
+    else if (isDownAlready2 == 1 && $(this).attr("src") === "../images/Picture1.png") {
+      $("#show-info2").slideUp('slow');
+      isDownAlready2 = 0;
+      $(this).attr("src", "../images/ic_action_name.png");
+      $("#show-info2").removeClass('hide-scrollbar' + (1 + 3));
+
+      // allowOnlyOneDownUpArrow(0);
+    }
+    else {
+      allowOnlyOneDownUpArrow2(1);
+    }
+  });
+  $('#line2-icon2').click(function () {
+    if (isDownAlready2 == 0 && $(this).attr("src") === "../images/ic_action_name.png") {
+      isDownAlready2 = 1;
+      $(this).attr("src", "../images/Picture1.png");
+      $("#show-info2").slideDown('slow');
+      $("#show-info2").addClass('hide-scrollbar' + (2 + 3));
+      changeInsideOfHiddenInfo2(2);
+
+    }
+    else if (isDownAlready2 == 1 && $(this).attr("src") === "../images/Picture1.png") {
+      $("#show-info2").slideUp('slow');
+      isDownAlready2 = 0;
+      $(this).attr("src", "../images/ic_action_name.png");
+      $("#show-info2").removeClass('hide-scrollbar' + (2 + 3));
+
+      // allowOnlyOneDownUpArrow(0);
+    }
+    else {
+      allowOnlyOneDownUpArrow2(2);
+    }
+  });
+  // $('#line2-icon0').hover(function () {
+  //   if (flag2 == 0) {
+  //     run2 = onClickAndDisableOtherClickLine2(0);
+  //   }
+  // });
+  // $('#line2-icon1').hover(function () {
+  //   if (flag2 == 0) {
+  //     run2 = onClickAndDisableOtherClickLine2(1);
+
+  //   }
+  // });
+  // $('#line2-icon2').hover(function () {
+  //   if (flag2 == 0) {
+  //     run2 = onClickAndDisableOtherClickLine2(2);
+  //   }
+  // });
+  // function onClickAndDisableOtherClickLine2(element2) {
+  //   for (var t = 0; t < 3; t++) {
+  //     if (t == element2) {
+  //       $('#line2-icon' + element2).click(function () {
+  //         flag2 = 1;
+  //         if ($(this).attr("src") === "../images/ic_action_name.png") {
+  //           console.log("true");
+  //           $(this).attr("src", "../images/Picture1.png");
+  //           changeInsideOfHiddenInfo2(element2);
+  //           $("#show-info2").addClass('hide-scrollbar' + (element2 + 3));
+  //           $("#show-info2").stop(true).slideDown('slow');
+  //         }
+  //         else {
+  //           $(this).attr("src", "../images/ic_action_name.png");
+  //           flag2 = 0;
+  //           $("#show-info2").slideUp('slow');
+  //           $("#show-info2").removeClass('hide-scrollbar' + (element2 + 3));
+  //         }
+  //       });
+  //     }
+  //     else {
+  //       $('#line2-icon' + t).unbind('click');
+  //     }
+  //   }
+  // }
   // $("#line2-left-icon").click(function () {
   //   if ($(this).attr("src") === "../images/ic_action_name.png") {
   //     console.log("true");
@@ -496,20 +647,20 @@ $(document).ready(function () {
   // });
   var atFirst = $("#section4").css('padding-bottom');
   var screenHeight = screen.height;
-  var atFirstValue = parseFloat(atFirst.substring(0,atFirst.indexOf('p')));
+  var atFirstValue = parseFloat(atFirst.substring(0, atFirst.indexOf('p')));
   console.log(atFirst);
-  
-  $(".expand-icon-library").click(function () {
-  // $('.footer-wrapper').toggleClass('toggleFooter');
 
-  if ($(this).attr("src") === "../../images1/ic_action_name.png") {
+  $(".expand-icon-library").click(function () {
+    // $('.footer-wrapper').toggleClass('toggleFooter');
+
+    if ($(this).attr("src") === "../../images1/ic_action_name.png") {
       $(this).attr("src", "../../images1/Picture1.png");
-      $("#section4").css('padding-bottom', (atFirstValue+screenHeight*20/100)+"px");
+      $("#section4").css('padding-bottom', (atFirstValue + screenHeight * 20 / 100) + "px");
       // $('.footer-wrapper').animate({bottom:(atFirstValue-15)+"px"}, 'slow');
     }
     else {
       $(this).attr("src", "../../images1/ic_action_name.png");
-      $("#section4").css('padding-bottom', (atFirstValue)+"px");
+      $("#section4").css('padding-bottom', (atFirstValue) + "px");
       // $('.footer-wrapper').animate({bottom:(atFirstValue)+"px"}, 'slow');
 
 
@@ -541,7 +692,7 @@ $(document).ready(function () {
       }
     }
   }
-  
+
   // function makeBorderFromMiddle() {
   //   var srcMiddle = $(".middletest").attr('src');
   //   console.log(srcMiddle);
