@@ -40,19 +40,23 @@
             width: 100%;
             height: 22vw !important;
             margin-bottom: -4px;
+            /* margin-left: -0.1%; */
         }
-        .line2-sectiontest img{
-            margin-right: -2.1px;
-            width: 100.2%;
+        #line1-left-pic{
+            margin-left: -0.1%;
+            /* margin-right: -2.1px; */
+            width: 100.1%;
         }
         .line2-sectiontest {
-            width: 33.3%;
+            width: 33.3333%;
         }
         .expandable-info img,.line2-expandable-info img{
             width: 30px !important;
             height: 30px !important;
         }
-
+        #line2-left-pic, #line2-middle-pic{
+            margin-left: -0.2%;width: 100.2%;
+        }
 
     </style>
 </head>
@@ -113,12 +117,12 @@
                     <div class="line1test">
                         <img src="../images/master_27.jpg" alt="" id="line1-left-pic">
                         <!-- <div id="line1-left-pic"></div> -->
-                        <div style="margin-left: 1.5px;" class="info" id="line1-info-left">
+                        <div  class="info" id="line1-info-left">
                             <p class="content1">Chương trình Offline</p>
                             <p class="content1" id="content-big">SAPPORO CÙNG U23 VIỆT NAM</p>
                             <p class="content1">20.03.2020 - 29.03.2020</p>
                         </div>
-                        <div style="margin-left: 1.5px;" class="expandable-info">
+                        <div  class="expandable-info">
                             <img src="../images/ic_action_name.png" class="expand-icon" id="line1-icon0">
                         </div>
                     </div>
@@ -137,22 +141,25 @@
                 <div class="hidden-info" style="margin-top: -0.1em;" class="" id="show-info1">
                     Sapporo special
                 </div>
+                <div class="hidden-info" style="margin-top: -0.1em;" class="" id="show-info3">
+                    Sapporo special
+                </div>
                 <div class="linetest line-responsive" style="margin-top: -0.1em;">
                     <!-- <div id="line2-dummy"></div> -->
                     <div class="line2-sectiontest" id="line2-left">
-                        <img class="line2-img" src="../images/master_28-34.jpg" alt="" style="height: 350px;">
-                        <div style="margin-left: 1.5px;" class="line2-info" id="line2-info-left">
+                        <img  id="line2-left-pic" class="line2-img" src="../images/master_28-34.jpg" alt="" style="height: 350px;">
+                        <div  class="line2-info" id="line2-info-left">
                             <p class="content3">Chương trình Offline</p>
                             <p class="content32" id="content-big">PREMIUM BEER</p>
                             <p class="content33">20.03.2020 - 29.03.2020</p>
                         </div>
-                        <div style="margin-left: 1.5px;" class="line2-expandable-info" id="line2-expand-left">
+                        <div  class="line2-expandable-info" id="line2-expand-left">
                             <img src="../images/ic_action_name.png" class="expand-icon" id="line2-icon0">
                         </div>
                     </div>
 
-                    <div class="line2-sectiontest" id="line2-middle" style="width: 33.3%">
-                        <img class="line2-img" src="../images/master_28-35.jpg" alt="" style="height: 350px;">
+                    <div class="line2-sectiontest" id="line2-middle">
+                        <img id="line2-middle-pic" class="line2-img" src="../images/master_28-35.jpg" alt="" style="height: 350px;">
                         <div class="line2-info" id="line2-info-middle">
                             <p class="content3" style="color: black;">Chương trình Offline</p>
                             <p class="content32" style="color: black;" id="content-big">SAPPORO NIGHT</p>
@@ -165,7 +172,7 @@
                     </div>
 
                     <div class="line2-sectiontest" id="line2-right">
-                        <img class="line2-img" src="../images/master_28-37.jpg" alt="">
+                        <img  class="line2-img" src="../images/master_28-37.jpg" alt="">
                         <div class="line2-info" id="line2-info-right">
                             <p class="content3" style="color: black;">Chương trình Offline</p>
                             <p class="content32" style="color: black;" id="content-big">BIA CÙNG CÔNG TY</p>
