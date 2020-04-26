@@ -519,9 +519,9 @@ h1{
     /* border: 1px solid white; */
 }
 #line1-left-pic{
-    width: 99.9%;
+    /* width: 100%; */
     height:350px;
-    margin-left: 1px;
+    /* margin-left: 1px; */
     /* background-image: url("../images/master_27.jpg"); */
 }
 #line1-left-info{
@@ -536,30 +536,34 @@ h1{
     /* border: 1px solid white; */
 }
 #line1-right-pic{
-    width: 100.3%;
+    /* width: 100%; */
     height: 350px;
     z-index: 100;
 }
 .info{
     /* margin-top: -0.6%; */
     position: relative;
-    width: 100.3%;
+    /* width: 99.9%; */
+    /* margin-left: 00.1%; */
     /* height: 23.5%; */
     background-color: #f6ac4d;
 }
 
 .expandable-info{
     position: relative;
-    width: 100.3%;
+    /* width: 99.9%; */
+    /* margin-left: 00.1%; */
     height: 6.5%;
     background-color: #e19a3e;
 }
 
 #right1{
     background-color: #535353;
+    margin-left: 0;
 }
 #right2{
     background-color: #353535;
+    margin-left: 0;
 }
 .content1{
     text-align: left;
@@ -602,15 +606,16 @@ h1{
     font-size: 0.7em;
     text-align: left;
     position: relative;
-    width: 95%;
+    /* width: 95%; */
+    box-sizing: border-box;
     height: 80px;
     color: white;
-    margin-left: 0.1%;
+    /* margin-left: 0.1%; */
     margin-top: 0.7%;
     display: none;
     overflow: auto;
     overflow-y:scroll;
-    margin-left: 1.5px;
+    /* margin-left: 1.5px; */
     
 }
 .hidden-info::-webkit-scrollbar-thumb {
@@ -629,7 +634,8 @@ h1{
 .line2-info{
     margin-top: -5.5%;
     position: relative;
-    width: 100.4%;
+    /* width: 99.8%; */
+    /* margin-left: 00.2%; */
     /* height: 23.5%; */
 }
 .content3{
@@ -652,25 +658,30 @@ h1{
 }
 #line2-info-left{
     background-color: #535353;
+    
 }
 
 #line2-info-middle{
     background-color: #ffdbab;
-    
+    margin-left: 0;
+
 }
 
 #line2-info-right{
     background-color: #e4e4e4;
+    margin-left: 0;
+
 }
 .line2-expandable-info{
     position: relative;
-    width: 100.4%;
+    /* width: 100%; */
     height: 6.5%;
     margin-top: -4.45%;
 }
 
 #line2-expand-left{
     background-color: #353535;
+    /* margin-left: 0.2%; */
 }
 
 #line2-expand-middle{
@@ -1296,6 +1307,10 @@ video{
 /* ---------------------------------------------------------------max-width: 500px--------------------------------------------------------------------- */
 
 @media only screen and (max-width: 500px){
+    #line1-left-pic,  #line2-left-pic, #line2-left-pic {
+        margin-left: 0 !important;
+        width: 100% !important;
+    }
     .end{
         font-size: 0.6em;
     }
