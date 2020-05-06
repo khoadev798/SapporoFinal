@@ -19,9 +19,9 @@ $(document).ready(function(){
     var width = screen.width
     console.log(width);
 
-
     document.getElementById('myVideo').addEventListener('ended',myHandler,false);
     
+
 
     
     function myHandler(e){

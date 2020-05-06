@@ -447,14 +447,20 @@ a:hover{
     font-style: bold;
 }
 #parent{
+    position: absolute;
+    display:block;
     border: 1px solid #fff;
-    width: 22.5%;
+    width: 25%;
+    left: 37.5%;
+    top: 62.5%;
     margin: 0% auto 0% auto;
     text-align: center;
     line-height: 2em;
+    z-index: 999;
 }
 
 #text2{
+    
     font-family: Regular;
     vertical-align: middle;
     color: #fff;
@@ -618,6 +624,8 @@ h1{
     /* margin-left: 1.5px; */
     
 }
+
+
 .hidden-info::-webkit-scrollbar-thumb {
     background: white; 
   }
@@ -694,6 +702,7 @@ h1{
 /* video */
 #section3{
     /* height: 100vh; */
+    position: relative;
     width: 100%;
 } 
 video{
